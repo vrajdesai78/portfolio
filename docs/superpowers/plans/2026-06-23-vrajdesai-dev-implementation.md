@@ -13,7 +13,8 @@
 These apply to EVERY task.
 
 - **No Next.js.** Vite only. Static generation via `vite-react-ssg`.
-- **Versions (pin in package.json; verified current as of research):** `react`/`react-dom` ^18.3 · `react-router-dom` ^7 · `vite-react-ssg` (latest 0.8–0.9; pre-1.0 — pin exact) · `vite` ^7 · `@vitejs/plugin-react` ^4–6 · `tailwindcss` ^4 + `@tailwindcss/vite` ^4 · `@mdx-js/rollup` ^3.1 · `remark-frontmatter` ^5 · `remark-mdx-frontmatter` ^5 · `satori` ^0.26 · `@resvg/resvg-js` ^2.6 (avoid alphas) · `gray-matter` ^4. **If npm reports peer conflicts, align `vite` and `react-router-dom` to `vite-react-ssg`'s peer ranges — it drives both.**
+- **Package manager: pnpm** (NOT npm/npx). Install with `pnpm add` / `pnpm add -D`, run scripts with `pnpm <script>` (e.g. `pnpm typecheck`), run binaries with `pnpm exec` (e.g. `pnpm exec vitest run …`). Dependency build approvals live in `pnpm-workspace.yaml` (already set: `allowBuilds: { esbuild: true }`).
+- **Versions — ACTUAL installed (Task 1 resolved peers):** `react`/`react-dom` 18.3 · **`react-router-dom` 6.30 (vite-react-ssg 0.9 requires v6 — use v6 APIs)** · `vite-react-ssg` 0.9 · `vite` 7.3 · `@vitejs/plugin-react` 5.2 · `tailwindcss` + `@tailwindcss/vite` 4.3 · `@mdx-js/rollup` 3.1 · `remark-frontmatter` 5 · `remark-mdx-frontmatter` 5 · `satori` 0.26 · `@resvg/resvg-js` 2.6 · `gray-matter` 4 · `@types/react`/`@types/react-dom` 18.3 · `typescript-eslint` 8 (flat `eslint.config.js`).
 - **Tailwind v4 specifics:** no `tailwind.config.js`; CSS entry is `@import "tailwindcss";`; dark mode via `@custom-variant dark (&:where(.dark, .dark *));`; design tokens via `@theme`.
 - **vite-react-ssg specifics:** entry must `export const createRoot = ViteReactSSG({ routes })`; routes are React-Router `RouteRecord[]`; lazy route modules export `Component` (not default); **`getStaticPaths()` returns relative full paths WITHOUT a leading slash** (e.g. `'projects/metengine'`); head via the bundled `<Head>` component (a React-Helmet wrapper) imported from `vite-react-ssg`.
 - **satori gotcha:** it throws if text is rendered without a matching font; use a **static** (non-variable) `.ttf` and ensure the font `name` matches the `fontFamily` in styles.
@@ -72,15 +73,15 @@ vite.config.ts  vitest.config.ts  tsconfig.json  tsconfig.node.json
 - Create: `package.json`, `vite.config.ts`, `vitest.config.ts`, `tsconfig.json`, `tsconfig.node.json`, `index.html`, `src/main.tsx`, `src/App.tsx`, `src/index.css`, `src/vite-env.d.ts`, `src/mdx.d.ts`, `src/test/setup.ts`, `src/components/Layout.tsx`, `src/pages/Home.tsx`, `.prettierrc`, `.eslintrc.cjs`
 
 **Interfaces:**
-- Produces: `routes` (exported from `src/App.tsx`), `createRoot` (exported from `src/main.tsx`). A working `npm run dev`, `npm run build`, `npm test`, `npm run typecheck`.
+- Produces: `routes` (exported from `src/App.tsx`), `createRoot` (exported from `src/main.tsx`). A working `pnpm run dev`, `pnpm run build`, `pnpm test`, `pnpm run typecheck`.
 
 - [ ] **Step 1: Init package + install deps**
 
 ```bash
 cd /Users/vrajdesai/Development/personal/portfolio
-npm init -y
-npm install react@^18.3 react-dom@^18.3 react-router-dom@^7 vite-react-ssg @vercel/analytics
-npm install -D vite @vitejs/plugin-react typescript @types/react @types/react-dom @types/node \
+pnpm init
+pnpm add react@^18.3 react-dom@^18.3 react-router-dom@^7 vite-react-ssg @vercel/analytics
+pnpm add -D vite @vitejs/plugin-react typescript @types/react @types/react-dom @types/node \
   @tailwindcss/vite tailwindcss \
   @mdx-js/rollup @mdx-js/react @types/mdx remark-frontmatter remark-mdx-frontmatter \
   vitest @testing-library/react @testing-library/jest-dom jsdom \
@@ -328,9 +329,9 @@ export function Component() {
 - [ ] **Step 10: Verify the toolchain runs, then commit**
 
 ```bash
-npm run typecheck          # Expected: no errors
-npm test                   # Expected: "No test files found" (exit 0) — acceptable at this stage
-npm run build:app          # Expected: dist/ created with index.html containing "Vraj Desai"
+pnpm run typecheck          # Expected: no errors
+pnpm test                   # Expected: "No test files found" (exit 0) — acceptable at this stage
+pnpm run build:app          # Expected: dist/ created with index.html containing "Vraj Desai"
 test -f dist/index.html && grep -q "Vraj Desai" dist/index.html && echo "SSG OK"
 git add -A && git commit -m "chore: scaffold Vite + React SSG + Tailwind v4 toolchain"
 ```
@@ -379,7 +380,7 @@ describe('site config', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `npx vitest run src/config/site.test.ts`
+Run: `pnpm exec vitest run src/config/site.test.ts`
 Expected: FAIL — `Cannot find module './site'`.
 
 - [ ] **Step 3: Write `src/config/site.ts`**
@@ -427,7 +428,7 @@ export const site: SiteConfig = {
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `npx vitest run src/config/site.test.ts`
+Run: `pnpm exec vitest run src/config/site.test.ts`
 Expected: PASS (5 tests).
 
 - [ ] **Step 5: Commit**
@@ -502,7 +503,7 @@ describe('parsePosts', () => {
 
 - [ ] **Step 2: Run test to verify it fails**
 
-Run: `npx vitest run src/lib/content.test.ts`
+Run: `pnpm exec vitest run src/lib/content.test.ts`
 Expected: FAIL — `Cannot find module './content'`.
 
 - [ ] **Step 3: Write `src/lib/content.ts`**
@@ -578,7 +579,7 @@ export const postStaticPaths = () =>
 
 - [ ] **Step 4: Run test to verify it passes**
 
-Run: `npx vitest run src/lib/content.test.ts`
+Run: `pnpm exec vitest run src/lib/content.test.ts`
 Expected: PASS (6 tests).
 
 - [ ] **Step 5: Commit**
@@ -655,7 +656,7 @@ describe('personJsonLd', () => {
 
 - [ ] **Step 2: Run to verify they fail**
 
-Run: `npx vitest run src/lib/og.test.ts src/lib/seo.test.ts`
+Run: `pnpm exec vitest run src/lib/og.test.ts src/lib/seo.test.ts`
 Expected: FAIL — modules not found.
 
 - [ ] **Step 3: Write `src/lib/og.ts`**
@@ -723,7 +724,7 @@ export function personJsonLd(): object {
 
 - [ ] **Step 5: Run tests to verify they pass**
 
-Run: `npx vitest run src/lib/og.test.ts src/lib/seo.test.ts`
+Run: `pnpm exec vitest run src/lib/og.test.ts src/lib/seo.test.ts`
 Expected: PASS (8 tests).
 
 - [ ] **Step 6: Commit**
@@ -773,7 +774,7 @@ describe('cycleTheme', () => {
 
 - [ ] **Step 2: Run to verify it fails**
 
-Run: `npx vitest run src/lib/theme.test.ts`
+Run: `pnpm exec vitest run src/lib/theme.test.ts`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Write `src/lib/theme.ts`**
@@ -807,7 +808,7 @@ export function setStoredTheme(t: Theme): void {
 
 - [ ] **Step 4: Run to verify it passes**
 
-Run: `npx vitest run src/lib/theme.test.ts`
+Run: `pnpm exec vitest run src/lib/theme.test.ts`
 Expected: PASS (4 tests).
 
 - [ ] **Step 5: Write `ThemeToggle` + its test**
@@ -869,7 +870,7 @@ describe('ThemeToggle', () => {
 - [ ] **Step 6: Run, verify pass, commit**
 
 ```bash
-npx vitest run src/lib/theme.test.ts src/components/ThemeToggle.test.tsx   # Expected: PASS
+pnpm exec vitest run src/lib/theme.test.ts src/components/ThemeToggle.test.tsx   # Expected: PASS
 git add src/lib/theme.ts src/lib/theme.test.ts src/components/ThemeToggle.tsx src/components/ThemeToggle.test.tsx
 git commit -m "feat: add theme system (system default + cycling toggle, no-flash)"
 ```
@@ -1058,8 +1059,8 @@ export default function Layout() {
 
 - [ ] **Step 5: Verify, then commit**
 
-Run: `npx vitest run src/components/Footer.test.tsx` → Expected: PASS.
-Run: `npm run typecheck` → Expected: no errors.
+Run: `pnpm exec vitest run src/components/Footer.test.tsx` → Expected: PASS.
+Run: `pnpm run typecheck` → Expected: no errors.
 
 ```bash
 git add src/components/*.tsx
@@ -1132,7 +1133,7 @@ describe('ProjectCard', () => {
 
 - [ ] **Step 2: Run to verify they fail**
 
-Run: `npx vitest run src/components/StatStrip.test.tsx src/components/ProjectCard.test.tsx`
+Run: `pnpm exec vitest run src/components/StatStrip.test.tsx src/components/ProjectCard.test.tsx`
 Expected: FAIL — modules not found.
 
 - [ ] **Step 3: Write the components**
@@ -1220,7 +1221,7 @@ export default function ProjectRow({ project }: { project: Project }) {
 
 - [ ] **Step 4: Run to verify they pass**
 
-Run: `npx vitest run src/components/StatStrip.test.tsx src/components/ProjectCard.test.tsx`
+Run: `pnpm exec vitest run src/components/StatStrip.test.tsx src/components/ProjectCard.test.tsx`
 Expected: PASS (4 tests).
 
 - [ ] **Step 5: Commit**
@@ -1308,7 +1309,7 @@ describe('Timeline', () => {
 
 - [ ] **Step 3: Run to verify it fails**
 
-Run: `npx vitest run src/components/Timeline.test.tsx`
+Run: `pnpm exec vitest run src/components/Timeline.test.tsx`
 Expected: FAIL — module not found.
 
 - [ ] **Step 4: Write the three components**
@@ -1364,7 +1365,7 @@ export default function AchievementList({ items }: { items: string[] }) {
 - [ ] **Step 5: Run, verify pass, commit**
 
 ```bash
-npx vitest run src/components/Timeline.test.tsx   # Expected: PASS
+pnpm exec vitest run src/components/Timeline.test.tsx   # Expected: PASS
 git add src/data/about.ts src/components/Timeline.tsx src/components/SkillGroup.tsx src/components/AchievementList.tsx src/components/Timeline.test.tsx
 git commit -m "feat: add About data + Timeline, SkillGroup, AchievementList components"
 ```
@@ -1409,7 +1410,7 @@ export const routes: RouteRecord[] = [
 ]
 ```
 
-> NOTE: This references pages created in Tasks 10–13. Create stub `Component` exports for any not-yet-built page if you run `dev` before those tasks (e.g. `export function Component() { return null }`), or implement Tasks 9–13 before the next `npm run build`.
+> NOTE: This references pages created in Tasks 10–13. Create stub `Component` exports for any not-yet-built page if you run `dev` before those tasks (e.g. `export function Component() { return null }`), or implement Tasks 9–13 before the next `pnpm run build`.
 
 - [ ] **Step 2: Write `NotFound.tsx`**
 
@@ -1454,7 +1455,7 @@ describe('Home', () => {
 
 - [ ] **Step 4: Run to verify it fails**
 
-Run: `npx vitest run src/pages/Home.test.tsx`
+Run: `pnpm exec vitest run src/pages/Home.test.tsx`
 Expected: FAIL — current Home has no tagline/stats.
 
 - [ ] **Step 5: Rewrite `src/pages/Home.tsx`**
@@ -1508,8 +1509,8 @@ export function Component() {
 - [ ] **Step 6: Run, verify pass, commit**
 
 ```bash
-npx vitest run src/pages/Home.test.tsx    # Expected: PASS
-npm run typecheck                          # NOTE: will fail until Tasks 10–13 pages exist; if so, add temporary stubs as in Step 1 NOTE, then re-run
+pnpm exec vitest run src/pages/Home.test.tsx    # Expected: PASS
+pnpm run typecheck                          # NOTE: will fail until Tasks 10–13 pages exist; if so, add temporary stubs as in Step 1 NOTE, then re-run
 git add src/App.tsx src/pages/Home.tsx src/pages/NotFound.tsx src/pages/Home.test.tsx
 git commit -m "feat: wire routes; build Home (hero, stats, featured, currently) + 404"
 ```
@@ -1545,7 +1546,7 @@ describe('About', () => {
 
 - [ ] **Step 2: Run to verify it fails**
 
-Run: `npx vitest run src/pages/About.test.tsx`
+Run: `pnpm exec vitest run src/pages/About.test.tsx`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Write `src/pages/About.tsx`**
@@ -1584,7 +1585,7 @@ export function Component() {
 - [ ] **Step 4: Run, verify pass, commit**
 
 ```bash
-npx vitest run src/pages/About.test.tsx    # Expected: PASS
+pnpm exec vitest run src/pages/About.test.tsx    # Expected: PASS
 git add src/pages/About.tsx src/pages/About.test.tsx
 git commit -m "feat: build About page (bio, timeline, skills, achievements)"
 ```
@@ -1636,7 +1637,7 @@ describe('Projects index', () => {
 
 - [ ] **Step 3: Run to verify it fails**
 
-Run: `npx vitest run src/pages/Projects.test.tsx`
+Run: `pnpm exec vitest run src/pages/Projects.test.tsx`
 Expected: FAIL — module not found.
 
 - [ ] **Step 4: Write `Projects.tsx` and `ProjectDetail.tsx`**
@@ -1718,7 +1719,7 @@ export const getStaticPaths = projectStaticPaths
 - [ ] **Step 5: Run, verify pass, commit**
 
 ```bash
-npx vitest run src/pages/Projects.test.tsx    # Expected: PASS
+pnpm exec vitest run src/pages/Projects.test.tsx    # Expected: PASS
 git add src/components/MDXComponents.tsx src/pages/Projects.tsx src/pages/ProjectDetail.tsx src/pages/Projects.test.tsx
 git commit -m "feat: build Projects index + ProjectDetail (MDX render, getStaticPaths)"
 ```
@@ -1752,7 +1753,7 @@ describe('Writing index', () => {
 
 - [ ] **Step 2: Run to verify it fails**
 
-Run: `npx vitest run src/pages/Writing.test.tsx`
+Run: `pnpm exec vitest run src/pages/Writing.test.tsx`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Write `Writing.tsx` and `PostDetail.tsx`**
@@ -1827,8 +1828,8 @@ export const getStaticPaths = postStaticPaths
 - [ ] **Step 4: Run, verify pass, commit**
 
 ```bash
-npx vitest run src/pages/Writing.test.tsx    # Expected: PASS
-npm run typecheck                             # Expected: no errors
+pnpm exec vitest run src/pages/Writing.test.tsx    # Expected: PASS
+pnpm run typecheck                             # Expected: no errors
 git add src/pages/Writing.tsx src/pages/PostDetail.tsx src/pages/Writing.test.tsx
 git commit -m "feat: build Writing index + PostDetail (getStaticPaths)"
 ```
@@ -1862,7 +1863,7 @@ describe('Resume', () => {
 
 - [ ] **Step 2: Run to verify it fails**
 
-Run: `npx vitest run src/pages/Resume.test.tsx`
+Run: `pnpm exec vitest run src/pages/Resume.test.tsx`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Write `src/pages/Resume.tsx`**
@@ -1894,7 +1895,7 @@ export function Component() {
 - [ ] **Step 4: Run, verify pass, commit**
 
 ```bash
-npx vitest run src/pages/Resume.test.tsx    # Expected: PASS
+pnpm exec vitest run src/pages/Resume.test.tsx    # Expected: PASS
 git add src/pages/Resume.tsx src/pages/Resume.test.tsx
 git commit -m "feat: build Resume page (embedded PDF + download)"
 ```
@@ -2009,7 +2010,7 @@ Placeholder post. Drafting in public — full content coming soon.
 - [ ] **Step 3: Verify content loads in a build, then commit**
 
 ```bash
-npm run build:app
+pnpm run build:app
 # Expected: dist/projects/metengine/index.html etc. exist (draft post NOT prerendered)
 test -f dist/projects/metengine/index.html && echo "project pages prerendered"
 test ! -d dist/writing/crypto-to-ai && echo "draft correctly excluded"
@@ -2084,7 +2085,7 @@ For `apple-touch-icon.png` (180×180), generate from the favicon (e.g. `rsvg-con
 - [ ] **Step 4: Verify build picks up assets, commit**
 
 ```bash
-npm run build:app
+pnpm run build:app
 test -f dist/vraj-desai-resume.pdf && test -f dist/fonts/JetBrainsMono-Variable.woff2 && echo "assets in dist"
 git add public scripts/og-fonts
 git commit -m "chore: add resume PDF, fonts, favicon, manifest, robots"
@@ -2197,7 +2198,7 @@ run().catch((e) => { console.error(e); process.exit(1) })
 - [ ] **Step 3: Run it against a prior app build, verify a PNG exists**
 
 ```bash
-npm run build:app && npx tsx scripts/generate-og.tsx
+pnpm run build:app && pnpm exec tsx scripts/generate-og.tsx
 test -f dist/og/home.png && test -f dist/og/projects-metengine.png && echo "OG generated"
 ```
 
@@ -2240,7 +2241,7 @@ describe('buildSitemap', () => {
 
 - [ ] **Step 2: Run to verify it fails**
 
-Run: `npx vitest run scripts/sitemap.test.ts`
+Run: `pnpm exec vitest run scripts/sitemap.test.ts`
 Expected: FAIL — module not found.
 
 - [ ] **Step 3: Write `scripts/sitemap.ts` and `scripts/generate-sitemap.ts`**
@@ -2271,7 +2272,7 @@ console.log('sitemap.xml written')
 - [ ] **Step 4: Run, verify pass, commit**
 
 ```bash
-npx vitest run scripts/sitemap.test.ts    # Expected: PASS
+pnpm exec vitest run scripts/sitemap.test.ts    # Expected: PASS
 git add scripts/sitemap.ts scripts/sitemap.test.ts scripts/generate-sitemap.ts
 git commit -m "feat: generate sitemap.xml at build"
 ```
@@ -2284,7 +2285,7 @@ git commit -m "feat: generate sitemap.xml at build"
 - Create: `scripts/check-build.ts`
 
 **Interfaces:**
-- `check-build.ts`: asserts key routes' `dist/**/index.html` contain `<title>`, `og:image`, and (home) `application/ld+json`. Exits non-zero on failure. Wired last in `npm run build` (already set in Task 1).
+- `check-build.ts`: asserts key routes' `dist/**/index.html` contain `<title>`, `og:image`, and (home) `application/ld+json`. Exits non-zero on failure. Wired last in `pnpm run build` (already set in Task 1).
 
 - [ ] **Step 1: Write `scripts/check-build.ts`**
 
@@ -2315,7 +2316,7 @@ console.log('check-build OK')
 
 - [ ] **Step 2: Run the FULL build pipeline end-to-end**
 
-Run: `npm run build`
+Run: `pnpm run build`
 Expected: `vite-react-ssg` prerenders → OG logs → `sitemap.xml written` → `check-build OK`. Non-zero exit if any assertion fails.
 
 - [ ] **Step 3: Confirm no-JS content + meta in built HTML**
@@ -2357,11 +2358,11 @@ MDX content · satori OG images · Vitest.
 
 ## Develop
 ```bash
-npm install
-npm run dev        # http://localhost:5173
-npm test           # unit tests
-npm run build      # SSG + OG images + sitemap + build checks → dist/
-npm run preview    # serve dist/
+pnpm install
+pnpm run dev        # http://localhost:5173
+pnpm test           # unit tests
+pnpm run build      # SSG + OG images + sitemap + build checks → dist/
+pnpm run preview    # serve dist/
 ```
 
 ## Add a project (no code changes)
@@ -2391,8 +2392,8 @@ One brand, many demos:
   reserves the pattern today; adding a real demo is the documented step above.
 
 ## Deploy (Vercel)
-- Framework preset: **Other**; Build: `npm run build`; Output dir: `dist`.
-- Add domain `vrajdesai.dev`. (Cloudflare Pages works identically: build `npm run build`, output `dist`.)
+- Framework preset: **Other**; Build: `pnpm run build`; Output dir: `dist`.
+- Add domain `vrajdesai.dev`. (Cloudflare Pages works identically: build `pnpm run build`, output `dist`.)
 - Analytics via `@vercel/analytics` (production only).
 ````
 
@@ -2424,16 +2425,16 @@ import { Analytics } from '@vercel/analytics/react'
 - [ ] **Step 2: Full gate — tests, types, build**
 
 ```bash
-npm test && npm run typecheck && npm run build
+pnpm test && pnpm run typecheck && pnpm run build
 ```
 Expected: all tests pass, no type errors, `check-build OK`.
 
 - [ ] **Step 3: Lighthouse on the built site** (use the run/verify skill or Chrome)
 
 ```bash
-npm run preview &     # serves dist on a local port
+pnpm run preview &     # serves dist on a local port
 ```
-Open `/`, `/about`, `/projects` and run Lighthouse (Chrome DevTools or `npx @lhci/cli autorun`).
+Open `/`, `/about`, `/projects` and run Lighthouse (Chrome DevTools or `pnpm exec @lhci/cli autorun`).
 Expected: **≥95** Performance, Accessibility, Best Practices, SEO. Fix regressions (contrast, image dims, meta) before done.
 
 - [ ] **Step 4: Browser pass** (Claude-in-Chrome on the preview URL)
@@ -2445,7 +2446,7 @@ Expected: **≥95** Performance, Accessibility, Best Practices, SEO. Fix regress
 - [ ] **Step 5: "Add a project" proof**
 ```bash
 printf -- '---\ntitle: "Proof"\noneliner: "temp"\ntags: ["AI"]\norder: 9\n---\nbody\n' > src/content/projects/_proof.mdx
-npm run build && test -f dist/projects/_proof/index.html && test -f dist/og/projects-_proof.png && echo "ADD-A-PROJECT OK"
+pnpm run build && test -f dist/projects/_proof/index.html && test -f dist/og/projects-_proof.png && echo "ADD-A-PROJECT OK"
 rm src/content/projects/_proof.mdx
 ```
 Expected: `ADD-A-PROJECT OK`; then remove the temp file.
