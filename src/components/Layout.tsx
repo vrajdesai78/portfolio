@@ -1,4 +1,5 @@
 import { Outlet } from 'react-router-dom'
+import { Analytics } from '@vercel/analytics/react'
 import SkipLink from './SkipLink'
 import Header from './Header'
 import Footer from './Footer'
@@ -12,6 +13,7 @@ export default function Layout() {
         <Outlet />
       </main>
       <Footer />
+      {import.meta.env.PROD && <Analytics />}
     </div>
   )
 }

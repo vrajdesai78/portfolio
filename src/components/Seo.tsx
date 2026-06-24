@@ -7,6 +7,7 @@ export default function Seo({ jsonLd, ...input }: Props) {
   const t = buildSeo(input)
   return (
     <Head>
+      <meta charSet="UTF-8" />
       <title>{t.title}</title>
       <meta name="description" content={t.description} />
       <link rel="canonical" href={t.canonical} />
