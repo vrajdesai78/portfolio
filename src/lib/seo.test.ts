@@ -28,5 +28,7 @@ describe('personJsonLd', () => {
     expect(ld['@type']).toBe('Person')
     expect(ld.name).toBe('Vraj Desai')
     expect(Array.isArray(ld.sameAs)).toBe(true)
+    expect((ld.sameAs as string[]).some((s) => s.startsWith('mailto:'))).toBe(false)
+    expect(ld.sameAs).toContain('https://github.com/vrajdesai78')
   })
 })
