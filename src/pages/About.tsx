@@ -13,9 +13,17 @@ export function Component() {
     <Container>
       <Seo title={`About — ${site.name}`} description="Founder, DevRel, and backend/data engineer." path="/about" />
       <Section title="About">
-        {/* TODO(owner): drop a headshot into public/ and add an <img> here (hero/about photo slot). */}
-        <div className="space-y-4 text-[15px] leading-relaxed">
-          {bio.map((p, i) => <p key={i}>{p}</p>)}
+        <div className="flex flex-col sm:flex-row gap-6 sm:gap-8">
+          <img
+            src="/vraj-desai.jpg"
+            alt="Vraj Desai"
+            width={640}
+            height={640}
+            className="w-32 h-32 sm:w-40 sm:h-40 rounded-xl border border-border object-cover object-center shrink-0"
+          />
+          <div className="space-y-4 text-[15px] leading-relaxed">
+            {bio.map((p, i) => <p key={i}>{p}</p>)}
+          </div>
         </div>
       </Section>
       <Section title="Experience"><Timeline entries={timeline} /></Section>
