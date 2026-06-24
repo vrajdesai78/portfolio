@@ -8,5 +8,8 @@ describe('Footer', () => {
     expect(screen.getByText('GitHub')).toBeInTheDocument()
     expect(screen.getByText('Email').closest('a')).toHaveAttribute('href', 'mailto:vrajdesai78@gmail.com')
     expect(screen.queryByText(/farcaster/i)).toBeNull()
+    expect(screen.getByText('GitHub').closest('a')).toHaveAttribute('target', '_blank')
+    expect(screen.getByText('GitHub').closest('a')).toHaveAttribute('rel', 'noopener noreferrer')
+    expect(screen.getByText('Email').closest('a')).not.toHaveAttribute('target', '_blank')
   })
 })

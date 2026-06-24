@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className="border-b border-border">
       <Container wide>
-        <nav className="flex items-center justify-between h-14">
+        <nav aria-label="Main navigation" className="flex items-center justify-between h-14">
           <Link to="/" className="font-mono font-semibold tracking-tight">vrajdesai.dev</Link>
           <div className="flex items-center gap-4">
             {site.nav.map((n) => (
