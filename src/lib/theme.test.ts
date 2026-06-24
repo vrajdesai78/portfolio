@@ -1,5 +1,5 @@
 import { describe, it, expect } from 'vitest'
-import { resolveTheme, cycleTheme } from './theme'
+import { resolveTheme, cycleTheme, getStoredTheme } from './theme'
 
 describe('resolveTheme', () => {
   it('system follows the OS preference', () => {
@@ -17,5 +17,14 @@ describe('cycleTheme', () => {
     expect(cycleTheme('system')).toBe('light')
     expect(cycleTheme('light')).toBe('dark')
     expect(cycleTheme('dark')).toBe('system')
+  })
+})
+
+describe('getStoredTheme', () => {
+  it('defaults to system for missing or invalid stored values', () => {
+    localStorage.clear()
+    expect(getStoredTheme()).toBe('system')
+    localStorage.setItem('theme', 'bogus')
+    expect(getStoredTheme()).toBe('system')
   })
 })

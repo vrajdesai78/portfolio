@@ -10,6 +10,7 @@ export default function ThemeToggle() {
   const [theme, setTheme] = useState<Theme>('system')
   useEffect(() => { setTheme(getStoredTheme()) }, [])
   useEffect(() => {
+    if (typeof window === 'undefined') return
     applyTheme(resolveTheme(theme, systemPrefersDark()))
     const mq = window.matchMedia('(prefers-color-scheme: dark)')
     const onChange = () => { if (getStoredTheme() === 'system') applyTheme(resolveTheme('system', mq.matches)) }
