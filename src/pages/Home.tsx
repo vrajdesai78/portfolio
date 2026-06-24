@@ -16,7 +16,18 @@ export function Component() {
         <div className="flex flex-col-reverse gap-8 sm:flex-row sm:items-start sm:justify-between">
           <div className="max-w-2xl">
             <h1 className="font-mono text-4xl sm:text-5xl tracking-tight">{site.name}</h1>
-            <p className="text-lg text-muted mt-4">{site.tagline}</p>
+            <p className="text-lg text-muted mt-4">
+              Engineer & builder. Co-founded{' '}
+              <a
+                href="https://metengine.xyz"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-fg underline underline-offset-4 decoration-border hover:text-accent hover:decoration-accent"
+              >
+                MetEngine
+              </a>
+              , which did $114M+ in volume.
+            </p>
             <div className="flex flex-wrap gap-3 mt-8">
               <Link to="/projects" className="font-mono text-sm border border-border px-4 py-2 hover:border-accent hover:text-accent">View Projects</Link>
               <Link to="/resume" className="font-mono text-sm border border-border px-4 py-2 hover:border-accent hover:text-accent">Resume</Link>

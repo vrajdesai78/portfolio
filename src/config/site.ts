@@ -11,7 +11,7 @@ export const site: SiteConfig = {
   name: 'Vraj Desai',
   role: 'Engineer & builder',
   tagline:
-    'Engineer & builder. Co-founded a Solana DeFi platform that did $114M+ in volume.',
+    'Engineer & builder. Co-founded MetEngine, which did $114M+ in volume.',
   currently:
     'Building high-throughput backend and data systems on Solana.',
   email: 'vrajdesai78@gmail.com',
