@@ -7,7 +7,7 @@ export default function Header() {
   return (
     <header className="border-b border-border">
       <Container wide>
-        <nav aria-label="Main navigation" className="flex items-center justify-between h-14">
+        <nav aria-label="Main navigation" className="flex flex-wrap items-center justify-between gap-x-4 gap-y-1 min-h-14 py-2">
           <Link to="/" className="font-mono font-semibold tracking-tight">vrajdesai.dev</Link>
           <div className="flex items-center gap-4">
             {site.nav.map((n) => (
