@@ -31,7 +31,9 @@ export default function ProjectCard({ project }: { project: Project }) {
       </div>
       {f.links && Object.keys(f.links).length > 0 && (
         <div className="flex gap-3 mt-4">
-          {(Object.entries(f.links) as [string, string][]).map(([k, href]) => (
+          {Object.entries(f.links)
+            .filter((e): e is [string, string] => typeof e[1] === 'string')
+            .map(([k, href]) => (
             <a key={k} href={href} target="_blank" rel="noopener noreferrer"
               className="font-mono text-xs uppercase tracking-wider text-accent hover:underline">
               {LINK_LABELS[k] ?? k} ↗

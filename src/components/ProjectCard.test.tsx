@@ -23,11 +23,13 @@ describe('ProjectCard', () => {
   it('renders NO external link buttons when links are absent', () => {
     wrap(<ProjectCard project={make()} />)
     expect(screen.queryByRole('link', { name: /live|github|video/i })).toBeNull()
+    expect(screen.queryAllByRole('link')).toHaveLength(1)
   })
   it('renders a Live button when a live link exists', () => {
     wrap(<ProjectCard project={make({ links: { live: 'https://farview.id' } })} />)
     const live = screen.getByRole('link', { name: /live/i })
     expect(live).toHaveAttribute('href', 'https://farview.id')
     expect(live).toHaveAttribute('target', '_blank')
+    expect(live).toHaveAttribute('rel', 'noopener noreferrer')
   })
 })
