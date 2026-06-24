@@ -32,7 +32,6 @@ export const site: SiteConfig = {
   nav: [
     { label: 'About', path: '/about' },
     { label: 'Projects', path: '/projects' },
-    { label: 'Writing', path: '/writing' },
-    { label: 'Resume', path: '/resume' },
+{ label: 'Resume', path: '/resume' },
   ],
 }

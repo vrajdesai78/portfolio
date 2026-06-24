@@ -1,6 +1,6 @@
 // src/lib/content.test.ts
 import { describe, it, expect } from 'vitest'
-import { parseProjects, parsePosts, type ProjectFrontmatter } from './content'
+import { parseProjects, type ProjectFrontmatter } from './content'
 
 const Comp = () => null
 const mod = (frontmatter: Partial<ProjectFrontmatter>) => ({ default: Comp, frontmatter: frontmatter as ProjectFrontmatter })
@@ -26,17 +26,5 @@ describe('parseProjects', () => {
   it('throws on missing required frontmatter', () => {
     const bad = { '../content/projects/bad.mdx': mod({ title: 'No oneliner', tags: [] } as never) }
     expect(() => parseProjects(bad, { includeDrafts: true })).toThrow(/oneliner/)
-  })
-})
-
-describe('parsePosts', () => {
-  it('sorts by date descending and hides drafts', () => {
-    const modules = {
-      '../content/writing/a.mdx': { default: Comp, frontmatter: { title: 'A', date: '2026-01-01', summary: 's' } },
-      '../content/writing/b.mdx': { default: Comp, frontmatter: { title: 'B', date: '2026-03-01', summary: 's' } },
-      '../content/writing/c.mdx': { default: Comp, frontmatter: { title: 'C', date: '2026-02-01', summary: 's', draft: true } },
-    }
-    const posts = parsePosts(modules, { includeDrafts: false })
-    expect(posts.map((p) => p.slug)).toEqual(['b', 'a'])
   })
 })

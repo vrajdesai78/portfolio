@@ -30,7 +30,7 @@ order: 5
 Write-up in MDX…
 ```
 It auto-appears in the grid, gets its own static page, OG image, and sitemap entry.
-Set `draft: true` to keep it out of production. Posts work the same in `src/content/writing/`.
+Set `draft: true` to keep it out of production.
 
 ## Deploy (Vercel)
 - Framework preset: **Other**; Build: `pnpm build`; Output dir: `dist`.

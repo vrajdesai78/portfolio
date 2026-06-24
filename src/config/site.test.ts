@@ -19,6 +19,6 @@ describe('site config', () => {
     expect(site.stats[0].value).toBe('$114M+')
   })
   it('nav covers the core routes', () => {
-    expect(site.nav.map((n) => n.path)).toEqual(['/about', '/projects', '/writing', '/resume'])
+    expect(site.nav.map((n) => n.path)).toEqual(['/about', '/projects', '/resume'])
   })
 })

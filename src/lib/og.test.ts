@@ -7,8 +7,8 @@ describe('ogImagePath', () => {
   it('maps /about', () => expect(ogImagePath('/about')).toBe('/og/about.png'))
   it('flattens nested project paths', () =>
     expect(ogImagePath('/projects/metengine')).toBe('/og/projects-metengine.png'))
-  it('flattens writing paths', () =>
-    expect(ogImagePath('/writing/my-post')).toBe('/og/writing-my-post.png'))
+  it('flattens nested project paths (multi-segment)', () =>
+    expect(ogImagePath('/projects/stackit')).toBe('/og/projects-stackit.png'))
 })
 
 describe('ogCard', () => {

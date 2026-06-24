@@ -36,23 +36,6 @@ function projectRoutes(): RouteMeta[] {
   })
 }
 
-function postRoutes(): RouteMeta[] {
-  const dir = join('src', 'content', 'writing')
-  return readDir(dir).flatMap((file) => {
-    const { data } = matter(readFileSync(join(dir, file), 'utf8'))
-    if (data.draft) return []
-    const slug = (data.slug as string) ?? file.replace(/\.mdx$/, '')
-    return [
-      {
-        path: `/writing/${slug}`,
-        eyebrow: 'WRITING',
-        title: data.title as string,
-        subtitle: data.summary as string,
-      },
-    ]
-  })
-}
-
 export function listRoutes(): RouteMeta[] {
   return [
     {
@@ -69,14 +52,7 @@ export function listRoutes(): RouteMeta[] {
       title: 'Projects',
       subtitle: 'Solana · Farcaster · Base',
     },
-    {
-      path: '/writing',
-      eyebrow: 'WRITING',
-      title: 'Writing',
-      subtitle: 'Notes & writing',
-    },
     { path: '/resume', eyebrow: 'RESUME', title: site.name, subtitle: site.role },
     ...projectRoutes(),
-    ...postRoutes(),
   ]
 }
