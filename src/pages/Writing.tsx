@@ -8,7 +8,7 @@ import Seo from '../components/Seo'
 export function Component() {
   return (
     <Container>
-      <Seo title={`Writing — ${site.name}`} description="Notes on building in public, crypto, and AI." path="/writing" />
+      <Seo title={`Writing — ${site.name}`} description="Notes on crypto, Solana, and engineering." path="/writing" />
       <Section title="Writing">
         {posts.length === 0 ? (
           <p className="text-muted">First posts coming soon.</p>

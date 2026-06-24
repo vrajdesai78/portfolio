@@ -9,7 +9,7 @@ describe('parseProjects', () => {
   const modules = {
     '../content/projects/metengine.mdx': mod({ title: 'MetEngine', oneliner: 'x', tags: ['Solana'], order: 1 }),
     '../content/projects/farview.mdx': mod({ title: 'Farview.id', oneliner: 'y', tags: ['Base'], order: 2 }),
-    '../content/projects/wip.mdx': mod({ title: 'WIP', oneliner: 'z', tags: ['AI'], order: 3, draft: true }),
+    '../content/projects/wip.mdx': mod({ title: 'WIP', oneliner: 'z', tags: ['Web3'], order: 3, draft: true }),
   }
   it('derives slug from filename', () => {
     const p = parseProjects(modules, { includeDrafts: true })

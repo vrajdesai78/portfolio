@@ -11,9 +11,9 @@ export const site: SiteConfig = {
   name: 'Vraj Desai',
   role: 'Engineer & builder',
   tagline:
-    'Engineer & builder. Co-founded a Solana DeFi platform that did $114M+ in volume. Now building in AI.',
+    'Engineer & builder. Co-founded a Solana DeFi platform that did $114M+ in volume.',
   currently:
-    'Wrapping up MetEngine and going deep on AI engineering — building in public.',
+    'Building high-throughput backend and data systems on Solana.',
   email: 'vrajdesai78@gmail.com',
   baseUrl: 'https://vrajdesai.dev',
   resumePath: '/vraj-desai-resume.pdf',

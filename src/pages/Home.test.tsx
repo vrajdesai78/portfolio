@@ -8,6 +8,6 @@ describe('Home', () => {
     render(<MemoryRouter><Home /></MemoryRouter>)
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Vraj Desai')
     expect(screen.getAllByText(/\$114M\+/).length).toBeGreaterThan(0)
-    expect(screen.getAllByText(/building in public/i).length).toBeGreaterThan(0)
+    expect(screen.getByText('Featured')).toBeInTheDocument()
   })
 })

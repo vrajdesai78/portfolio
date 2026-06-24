@@ -2,9 +2,9 @@ export interface TimelineEntry { org: string; role: string; period: string; poin
 export interface SkillGroupData { label: string; items: string[] }
 
 export const bio: string[] = [
-  'Vraj Desai is an engineer and builder. As Co-Founder & CTO of MetEngine, he led the backend end-to-end — high-throughput data pipelines and real-time analytics on Solana, and a zero-slot-latency automated copy-LPing experience that drove $4.3M+ in yield for 8.5K+ users and scaled total volume past $114M+. He also built x402/MPP data APIs (Polymarket, Hyperliquid, market making; 6,000+ txns) and a Chrome extension with 2,500+ peak downloads.',
-  'Before MetEngine he worked in developer relations at the edge of the wallet and media ecosystems — at WalletConnect (WalletKit), partnering with Jupiter, Backpack, and MetaMask on Solana support and the WalletConnect Certified initiative; and at Huddle01, where he drove 200+ projects onto the SDKs and built FarHouse, a Farcaster audio-spaces client that reached 30K+ users. He got his start in open source as a Google Summer of Code ‘22 contributor to the Oppia Foundation.',
-  'He’s a serial hackathon winner (30+ wins, ETHGlobal Finalist, Colosseum Accelerator Cohort 3) and has spoken at 25+ conferences. Now he’s going deep on AI engineering — building in public and shipping demos here.',
+  "I’m an engineer and builder. As Co-Founder & CTO of MetEngine, I led the backend end-to-end — high-throughput data pipelines and real-time analytics on Solana, and a zero-slot-latency automated copy-LPing experience that drove $4.3M+ in yield for 8.5K+ users and scaled total volume past $114M+. I also built x402/MPP data APIs (Polymarket, Hyperliquid, market making; 6,000+ txns) and a Chrome extension with 2,500+ peak downloads.",
+  "Before MetEngine I worked in developer relations at the edge of the wallet and media ecosystems — at WalletConnect (WalletKit), partnering with Jupiter, Backpack, and MetaMask on Solana support and the WalletConnect Certified initiative; and at Huddle01, where I drove 200+ projects onto the SDKs and built FarHouse, a Farcaster audio-spaces client that reached 30K+ users. I got my start in open source as a Google Summer of Code ’22 contributor to the Oppia Foundation.",
+  "I’m a serial hackathon winner (30+ wins, ETHGlobal Finalist, Colosseum Accelerator Cohort 3) and have spoken at 25+ conferences.",
 ]
 
 export const timeline: TimelineEntry[] = [

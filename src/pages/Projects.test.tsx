@@ -4,9 +4,9 @@ import { render, screen } from '@testing-library/react'
 import { Component as Projects } from './Projects'
 
 describe('Projects index', () => {
-  it('renders a Projects heading and the AI building-in-public block', () => {
+  it('renders a Projects heading and project cards', () => {
     render(<MemoryRouter><Projects /></MemoryRouter>)
     expect(screen.getByRole('heading', { name: /projects/i })).toBeInTheDocument()
-    expect(screen.getByText(/building in public/i)).toBeInTheDocument()
+    expect(screen.getByText('MetEngine')).toBeInTheDocument()
   })
 })

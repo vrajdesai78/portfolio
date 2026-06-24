@@ -11,7 +11,7 @@ import AchievementList from '../components/AchievementList'
 export function Component() {
   return (
     <Container>
-      <Seo title={`About — ${site.name}`} description="Founder, DevRel, backend/data engineer — now building in AI." path="/about" />
+      <Seo title={`About — ${site.name}`} description="Founder, DevRel, and backend/data engineer." path="/about" />
       <Section title="About">
         {/* TODO(owner): drop a headshot into public/ and add an <img> here (hero/about photo slot). */}
         <div className="space-y-4 text-[15px] leading-relaxed">

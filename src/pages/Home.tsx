@@ -26,11 +26,6 @@ export function Component() {
       <Section title="Featured">
         <div className="grid sm:grid-cols-2 gap-4">
           {featuredProjects.map((p) => <ProjectCard key={p.slug} project={p} />)}
-          <article className="border border-dashed border-border p-5 flex flex-col justify-center">
-            <h3 className="font-mono text-lg">AI — building in public</h3>
-            <p className="text-sm text-muted mt-1">7-day-sprint AI demos are shipping here soon.</p>
-            <Link to="/projects" className="font-mono text-xs uppercase tracking-wider text-accent mt-4 hover:underline">See all projects →</Link>
-          </article>
         </div>
       </Section>
 
