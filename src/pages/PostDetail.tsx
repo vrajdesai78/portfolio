@@ -1,7 +1,7 @@
 import { useParams, Link } from 'react-router-dom'
 import type { MDXContent } from 'mdx/types'
 import { site } from '../config/site'
-import { getPostBySlug, postStaticPaths } from '../lib/content'
+import { getPostBySlug } from '../lib/content'
 import { mdxComponents } from '../components/MDXComponents'
 import Container from '../components/Container'
 import Seo from '../components/Seo'
@@ -28,4 +28,3 @@ export function Component() {
   )
 }
 
-export const getStaticPaths = postStaticPaths

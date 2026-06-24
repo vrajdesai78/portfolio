@@ -1,7 +1,7 @@
 // src/pages/ProjectDetail.tsx
 import { useParams, Link } from 'react-router-dom'
 import type { MDXContent } from 'mdx/types'
-import { getProjectBySlug, projectStaticPaths } from '../lib/content'
+import { getProjectBySlug } from '../lib/content'
 import { mdxComponents } from '../components/MDXComponents'
 import Container from '../components/Container'
 import Seo from '../components/Seo'
@@ -45,4 +45,3 @@ export function Component() {
   )
 }
 
-export const getStaticPaths = projectStaticPaths
