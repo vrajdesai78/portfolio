@@ -2011,8 +2011,8 @@ Placeholder post. Drafting in public — full content coming soon.
 
 ```bash
 pnpm run build:app
-# Expected: dist/projects/metengine/index.html etc. exist (draft post NOT prerendered)
-test -f dist/projects/metengine/index.html && echo "project pages prerendered"
+# Expected: dist/projects/metengine.html etc. exist (draft post NOT prerendered)
+test -f dist/projects/metengine.html && echo "project pages prerendered"
 test ! -d dist/writing/crypto-to-ai && echo "draft correctly excluded"
 git add src/content
 git commit -m "content: add project MDX (MetEngine, Stackit, Farview, FarHouse) + seed post"
@@ -2295,9 +2295,9 @@ import { join } from 'node:path'
 
 const checks: { file: string; must: string[] }[] = [
   { file: 'dist/index.html', must: ['<title>', 'og:image', 'application/ld+json'] },
-  { file: 'dist/about/index.html', must: ['<title>', 'og:image'] },
-  { file: 'dist/projects/index.html', must: ['<title>', 'og:image'] },
-  { file: 'dist/projects/metengine/index.html', must: ['<title>', 'og:image', 'MetEngine'] },
+  { file: 'dist/about.html', must: ['<title>', 'og:image'] },
+  { file: 'dist/projects.html', must: ['<title>', 'og:image'] },
+  { file: 'dist/projects/metengine.html', must: ['<title>', 'og:image', 'MetEngine'] },
   { file: 'dist/og/home.png', must: [] },
   { file: 'dist/sitemap.xml', must: ['<loc>'] },
 ]
@@ -2324,7 +2324,7 @@ Expected: `vite-react-ssg` prerenders → OG logs → `sitemap.xml written` → 
 ```bash
 grep -q "Engineer & builder" dist/index.html && echo "hero content in static HTML (no JS needed)"
 grep -q 'application/ld+json' dist/index.html && echo "JSON-LD present"
-grep -q 'og:image' dist/projects/metengine/index.html && echo "per-page OG present"
+grep -q 'og:image' dist/projects/metengine.html && echo "per-page OG present"
 ```
 
 Expected: all three confirmations print.
@@ -2446,7 +2446,7 @@ Expected: **≥95** Performance, Accessibility, Best Practices, SEO. Fix regress
 - [ ] **Step 5: "Add a project" proof**
 ```bash
 printf -- '---\ntitle: "Proof"\noneliner: "temp"\ntags: ["AI"]\norder: 9\n---\nbody\n' > src/content/projects/_proof.mdx
-pnpm run build && test -f dist/projects/_proof/index.html && test -f dist/og/projects-_proof.png && echo "ADD-A-PROJECT OK"
+pnpm run build && test -f dist/projects/_proof.html && test -f dist/og/projects-_proof.png && echo "ADD-A-PROJECT OK"
 rm src/content/projects/_proof.mdx
 ```
 Expected: `ADD-A-PROJECT OK`; then remove the temp file.
