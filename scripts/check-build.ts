@@ -1,11 +1,10 @@
 import { readFileSync, existsSync } from 'node:fs'
 
 const checks: { file: string; must: string[] }[] = [
-  { file: 'dist/index.html', must: ['<title', 'og:image', 'application/ld+json'] },
-  { file: 'dist/about.html', must: ['<title', 'og:image'] },
-  { file: 'dist/projects.html', must: ['<title', 'og:image'] },
-  { file: 'dist/projects/metengine.html', must: ['<title', 'og:image', 'MetEngine'] },
+  { file: 'dist/index.html', must: ['<title', 'og:image', 'application/ld+json', 'MetEngine', 'looking for my next role'] },
+  { file: 'dist/resume.html', must: ['<title', 'og:image'] },
   { file: 'dist/og/home.png', must: [] },
+  { file: 'dist/og/resume.png', must: [] },
   { file: 'dist/sitemap.xml', must: ['<loc>'] },
 ]
 
