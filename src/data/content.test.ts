@@ -33,4 +33,20 @@ describe('content data (mirrors July 2026 resume)', () => {
       'Languages', 'Backend & Data', 'Web3', 'Solutions & Integration',
     ])
   })
+  it('keeps the MetEngine metrics intact', () => {
+    const text = work[0].points.join(' ')
+    expect(text).toContain('$114M+')
+    expect(text).toContain('8.5K+')
+    expect(text).toContain('$4.3M+')
+    expect(text).toContain('$375K')
+  })
+  it('keeps the Farview.id metrics and award intact', () => {
+    const farview = projectsData.find((p) => p.name === 'Farview.id')!
+    const text = `${farview.oneliner}${farview.award}`
+    expect(text).toContain('6K+')
+    expect(text).toContain('Social track')
+  })
+  it('keeps the Colosseum achievement metric intact', () => {
+    expect(achievements.some((a) => a.includes('1,412 projects'))).toBe(true)
+  })
 })

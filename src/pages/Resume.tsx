@@ -6,7 +6,7 @@ import Seo from '../components/Seo'
 
 export function Component() {
   return (
-    <Container wide>
+    <Container>
       <Seo title={`Resume — ${site.name}`} description="Vraj Desai — resume / CV." path="/resume" />
       <div className="py-14">
         <Section title="resume">

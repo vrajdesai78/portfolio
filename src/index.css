@@ -51,5 +51,10 @@ body { background: var(--bg); color: var(--fg); font-family: var(--font-sans);
 }
 
 @media (prefers-reduced-motion: reduce) {
-  * { animation-duration: 0.01ms !important; transition-duration: 0.01ms !important; }
+  * {
+    animation-duration: 0.01ms !important;
+    transition-duration: 0.01ms !important;
+    animation-delay: 0 !important;
+    animation-iteration-count: 1 !important;
+  }
 }

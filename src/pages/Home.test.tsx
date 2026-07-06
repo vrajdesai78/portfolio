@@ -10,5 +10,7 @@ describe('Home', () => {
     expect(screen.getByText(/looking for my next role/i)).toBeInTheDocument()
     expect(screen.getAllByText('MetEngine').length).toBeGreaterThan(0)
     expect(screen.getByText('Stackit')).toBeInTheDocument()
+    expect(screen.getByText('Feb 2025 – Jun 2026')).toBeInTheDocument()
+    expect(screen.getByText(/Languages/)).toBeInTheDocument()
   })
 })
