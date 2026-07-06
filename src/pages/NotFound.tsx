@@ -10,7 +10,7 @@ export function Component() {
       <div className="py-24 text-center">
         <p className="font-mono text-5xl">404</p>
         <p className="text-muted mt-3">That page doesn't exist.</p>
-        <Link to="/" className="font-mono text-sm text-accent hover:underline mt-6 inline-block">← Home</Link>
+        <Link to="/" className="mt-6 inline-block font-mono text-sm underline decoration-border underline-offset-4 transition-colors duration-150 hover:decoration-accent hover:text-accent">← Home</Link>
       </div>
     </Container>
   )

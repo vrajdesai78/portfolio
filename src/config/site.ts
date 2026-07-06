@@ -1,6 +1,4 @@
 export interface Social { label: string; href: string }
-// Kept only so `StatStrip.tsx` (removed in a later task) still compiles; no longer part of SiteConfig.
-export interface Stat { value: string; label: string }
 export interface SiteConfig {
   name: string; role: string; roleLine: string; tagline: string; availability: string;
   email: string; baseUrl: string; resumePath: string;
