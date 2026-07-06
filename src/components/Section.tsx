@@ -1,9 +1,16 @@
-import type { ReactNode } from 'react'
-export default function Section({ title, id, children }: { title?: string; id?: string; children: ReactNode }) {
+import type { CSSProperties, ReactNode } from 'react'
+
+interface Props { title?: string; id?: string; stagger?: number; children: ReactNode }
+
+export default function Section({ title, id, stagger = 0, children }: Props) {
   return (
-    <section id={id} className="py-10 border-t border-border first:border-t-0">
+    <section
+      id={id}
+      className="animate-enter"
+      style={{ '--stagger': stagger } as CSSProperties}
+    >
       {title && (
-        <h2 className="font-mono text-xs uppercase tracking-[0.18em] text-muted mb-6">{title}</h2>
+        <h2 className="mb-5 font-mono text-xs lowercase tracking-[0.18em] text-muted">{title}</h2>
       )}
       {children}
     </section>
