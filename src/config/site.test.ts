@@ -14,11 +14,8 @@ describe('site config', () => {
     expect(labels).toEqual(expect.arrayContaining(['github', 'x', 'linkedin', 'email']))
     expect(labels).not.toContain('farcaster')
   })
-  it('exposes exactly four hero stats', () => {
-    expect(site.stats).toHaveLength(4)
-    expect(site.stats[0].value).toBe('$114M+')
-  })
-  it('nav covers the core routes', () => {
-    expect(site.nav.map((n) => n.path)).toEqual(['/about', '/projects', '/resume'])
+  it('positions for solutions engineering with an explicit availability line', () => {
+    expect(site.role).toBe('Backend & Solutions Engineer')
+    expect(site.availability).toMatch(/looking for my next role/i)
   })
 })

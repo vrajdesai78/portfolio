@@ -1,59 +1,108 @@
 import { Link } from 'react-router-dom'
 import { site } from '../config/site'
-import { featuredProjects } from '../lib/content'
+import { work, projectsData, achievements, skills } from '../data/content'
+import { boldify } from '../lib/text'
 import { personJsonLd } from '../lib/seo'
 import Container from '../components/Container'
 import Section from '../components/Section'
 import Seo from '../components/Seo'
-import StatStrip from '../components/StatStrip'
-import ProjectCard from '../components/ProjectCard'
+import WorkItem from '../components/WorkItem'
+import ProjectItem from '../components/ProjectItem'
+
+const linkClass =
+  'underline decoration-border underline-offset-4 transition-colors duration-150 hover:decoration-accent hover:text-accent'
 
 export function Component() {
   return (
-    <Container wide>
+    <Container>
       <Seo title={`${site.name} — ${site.role}`} description={site.tagline} path="/" jsonLd={personJsonLd()} />
-      <section className="py-16">
-        <div className="flex flex-col-reverse gap-8 sm:flex-row sm:items-start sm:justify-between">
-          <div className="max-w-2xl">
-            <h1 className="font-mono text-4xl sm:text-5xl tracking-tight">{site.name}</h1>
-            <p className="text-lg text-muted mt-4">
-              Engineer & builder. Co-founded{' '}
-              <a
-                href="https://metengine.xyz"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-fg underline underline-offset-4 decoration-border hover:text-accent hover:decoration-accent"
-              >
-                MetEngine
-              </a>
-              , which did $114M+ in volume.
-            </p>
-            <div className="flex flex-wrap gap-3 mt-8">
-              <Link to="/projects" className="font-mono text-sm border border-border px-4 py-2 hover:border-accent hover:text-accent">View Projects</Link>
-              <Link to="/resume" className="font-mono text-sm border border-border px-4 py-2 hover:border-accent hover:text-accent">Resume</Link>
-              <a href="https://github.com/vrajdesai78" target="_blank" rel="noopener noreferrer" className="font-mono text-sm border border-border px-4 py-2 hover:border-accent hover:text-accent">GitHub ↗</a>
+      <div className="space-y-14 py-14">
+        <header className="animate-enter">
+          <div className="flex items-center gap-4">
+            <img
+              src="/vraj-desai.jpg"
+              alt="Vraj Desai"
+              width={640}
+              height={640}
+              className="h-14 w-14 rounded-full object-cover"
+            />
+            <div>
+              <h1 className="text-2xl font-semibold tracking-tight">{site.name}</h1>
+              <p className="mt-0.5 font-mono text-sm text-muted">{site.roleLine}</p>
             </div>
           </div>
-          <img
-            src="/vraj-desai.jpg"
-            alt="Vraj Desai"
-            width={640}
-            height={640}
-            className="w-28 h-28 sm:w-44 sm:h-44 rounded-xl border border-border object-cover object-center shrink-0"
-          />
-        </div>
-        <div className="mt-10"><StatStrip stats={site.stats} /></div>
-      </section>
+          <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted">
+            <p>
+              I build end-to-end and work directly with customers — backend, integrations, and
+              developer-facing solutions. Most recently co-founded{' '}
+              <a href="https://metengine.xyz" target="_blank" rel="noopener noreferrer" className={`text-fg ${linkClass}`}>
+                MetEngine
+              </a>
+              : {boldify('**$114M+** volume, **8.5K+** users, **$375K** raised from Colosseum and Balaji Srinivasan.')}
+            </p>
+            <p className="text-fg">
+              <span className="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-accent" aria-hidden="true" />
+              {site.availability}{' '}
+              <a href={`mailto:${site.email}`} className={linkClass}>
+                Get in touch →
+              </a>
+            </p>
+          </div>
+          <ul className="mt-6 flex flex-wrap gap-x-4 gap-y-1 font-mono text-xs lowercase text-muted">
+            {site.socials.map((s) => (
+              <li key={s.label}>
+                <a
+                  href={s.href}
+                  target={s.href.startsWith('mailto:') ? undefined : '_blank'}
+                  rel="noopener noreferrer"
+                  className={linkClass}
+                >
+                  {s.label}
+                </a>
+              </li>
+            ))}
+            <li>
+              <Link to="/resume" className={linkClass}>Resume</Link>
+            </li>
+          </ul>
+        </header>
 
-      <Section title="Featured">
-        <div className="grid sm:grid-cols-2 gap-4">
-          {featuredProjects.map((p) => <ProjectCard key={p.slug} project={p} />)}
-        </div>
-      </Section>
+        <Section title="work" stagger={1}>
+          <div className="space-y-8">
+            {work.map((w) => <WorkItem key={w.org} entry={w} />)}
+          </div>
+        </Section>
 
-      <Section title="Currently">
-        <p className="text-muted">{site.currently}</p>
-      </Section>
+        <Section title="projects" stagger={2}>
+          <div className="space-y-6">
+            {projectsData.map((p) => <ProjectItem key={p.name} project={p} />)}
+          </div>
+        </Section>
+
+        <Section title="achievements" stagger={3}>
+          <ul className="space-y-2">
+            {achievements.map((a, i) => (
+              <li
+                key={i}
+                className="relative pl-4 text-[15px] leading-relaxed text-muted before:absolute before:left-0 before:content-['–']"
+              >
+                {boldify(a)}
+              </li>
+            ))}
+          </ul>
+        </Section>
+
+        <Section title="skills" stagger={4}>
+          <dl className="space-y-2 text-[15px] leading-relaxed">
+            {skills.map((g) => (
+              <div key={g.label}>
+                <dt className="inline font-semibold">{g.label}: </dt>
+                <dd className="inline text-muted">{g.items.join(', ')}</dd>
+              </div>
+            ))}
+          </dl>
+        </Section>
+      </div>
     </Container>
   )
 }

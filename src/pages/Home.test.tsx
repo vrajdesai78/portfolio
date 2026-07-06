@@ -4,10 +4,11 @@ import { render, screen } from '@testing-library/react'
 import { Component as Home } from './Home'
 
 describe('Home', () => {
-  it('renders name, tagline, stat strip, and currently line', () => {
+  it('renders name, availability line, work, and projects', () => {
     render(<MemoryRouter><Home /></MemoryRouter>)
     expect(screen.getByRole('heading', { level: 1 })).toHaveTextContent('Vraj Desai')
-    expect(screen.getAllByText(/\$114M\+/).length).toBeGreaterThan(0)
-    expect(screen.getByText('Featured')).toBeInTheDocument()
+    expect(screen.getByText(/looking for my next role/i)).toBeInTheDocument()
+    expect(screen.getAllByText('MetEngine').length).toBeGreaterThan(0)
+    expect(screen.getByText('Stackit')).toBeInTheDocument()
   })
 })
