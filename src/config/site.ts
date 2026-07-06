@@ -1,11 +1,10 @@
 export interface Social { label: string; href: string }
 // Kept only so `StatStrip.tsx` (removed in a later task) still compiles; no longer part of SiteConfig.
 export interface Stat { value: string; label: string }
-export interface NavItem { label: string; path: string }
 export interface SiteConfig {
   name: string; role: string; roleLine: string; tagline: string; availability: string;
   email: string; baseUrl: string; resumePath: string;
-  socials: Social[]; nav: NavItem[];
+  socials: Social[];
 }
 
 export const site: SiteConfig = {
@@ -25,5 +24,4 @@ export const site: SiteConfig = {
     { label: 'LinkedIn', href: 'https://linkedin.com/in/vrajdesai78' },
     { label: 'Email', href: 'mailto:vrajdesai78@gmail.com' },
   ],
-  nav: [],
 }

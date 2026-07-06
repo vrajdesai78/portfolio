@@ -23,7 +23,7 @@ export default function ThemeToggle() {
     <button
       type="button" onClick={next}
       aria-label={`Theme: ${LABEL[theme]}. Click to change.`}
-      className="font-mono text-xs uppercase tracking-wider px-2 py-1 border border-border rounded hover:text-accent"
+      className="font-mono text-xs lowercase tracking-wider text-muted transition-colors duration-150 hover:text-accent"
     >
       {LABEL[theme]}
     </button>
