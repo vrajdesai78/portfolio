@@ -28,7 +28,9 @@ export function Component() {
             />
             <div>
               <h1 className="text-2xl font-semibold tracking-tight">{site.name}</h1>
-              <p className="mt-0.5 font-mono text-sm text-muted">{site.roleLine}</p>
+              <p className="mt-0.5 font-mono text-sm lowercase text-muted">
+                {site.roleLine} · {site.location}
+              </p>
             </div>
           </div>
           <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted">

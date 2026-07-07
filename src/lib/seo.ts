@@ -36,6 +36,7 @@ export function personJsonLd(): object {
     url: site.baseUrl,
     jobTitle: site.role,
     email: `mailto:${site.email}`,
+    address: { '@type': 'PostalAddress', addressLocality: 'Vadodara', addressCountry: 'IN' },
     sameAs: site.socials.filter((s) => s.label !== 'Email').map((s) => s.href),
   }
 }

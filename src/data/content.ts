@@ -65,10 +65,12 @@ export const projectsData: ProjectEntry[] = [
 ]
 
 export const achievements: string[] = [
-  '**2nd prize**, DeFi track, Colosseum Breakout Hackathon — out of **1,412 projects** from 10K+ builders; selected for **Colosseum Accelerator Cohort 3**.',
+  '**2nd prize**, DeFi track, Colosseum Breakout Hackathon — out of **1,412 projects** from 10K+ builders; selected for **Colosseum Accelerator Cohort 3** (YC for Solana).',
   '**ETHGlobal finalist** and winner of **30+ hackathons**; builder grants from Base and Superteam.',
   'Speaker at **25+ conferences**; mentored at ETHIndia and HackFS.',
 ]
+
+export const education: string[] = []
 
 export const skills: SkillGroupData[] = [
   { label: 'Languages', items: ['TypeScript', 'JavaScript', 'Solidity', 'Python', 'Rust (familiar)'] },
