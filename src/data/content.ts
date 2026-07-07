@@ -1,5 +1,5 @@
 export interface WorkEntry { org: string; url?: string; role: string; period: string; points: string[] }
-export interface ProjectEntry { name: string; oneliner: string; award: string }
+export interface ProjectEntry { name: string; url?: string; oneliner: string; award: string }
 export interface SkillGroupData { label: string; items: string[] }
 
 export const work: WorkEntry[] = [
@@ -7,9 +7,9 @@ export const work: WorkEntry[] = [
     org: 'MetEngine', url: 'https://metengine.xyz', role: 'Co-Founder & CTO',
     period: 'Feb 2025 – Jun 2026',
     points: [
-      'Built a zero-slot-latency automated copy-LPing engine that drove **$4.3M+** in yield for **8.5K+** users and scaled total volume past **$114M+**.',
+      'Built an automated copy-LPing engine on Solana that drove **$4.3M+** in yield for **8.5K+** users and scaled total volume past **$114M+**.',
       'Led the backend end-to-end: high-throughput data pipelines and real-time analytics on Solana (Node.js, ClickHouse, Redis) in production on AWS, with a real-time indexer across Meteora and other DeFi protocols.',
-      'Built x402/MPP data APIs for Polymarket, Hyperliquid, and market making (**6,000+** transactions) and a Chrome extension with **2,500+** peak downloads.',
+      'Built x402-metered data APIs serving Polymarket, Hyperliquid, and market-making feeds, plus a Chrome extension with richer trading analytics.',
       'Raised **$375K** pre-seed from Colosseum, Balaji Srinivasan, and MonkeFoundry; drove the product 0 → 1 across architecture, hiring, and go-to-market.',
     ],
   },
@@ -47,6 +47,7 @@ export const projectsData: ProjectEntry[] = [
   },
   {
     name: 'Farview.id',
+    url: 'https://github.com/vrajdesai78/Farview.id',
     oneliner: 'Personalized profile pages for Farcaster & Base users — **6K+** users, **12K+** Frame interactions.',
     award: 'Won the **Social track** at Base Onchain Summer Buildathon; Base builder grant.',
   },
@@ -57,6 +58,7 @@ export const projectsData: ProjectEntry[] = [
   },
   {
     name: 'WiseBets',
+    url: 'https://github.com/vrajdesai78/WiseBets',
     oneliner: 'Multi-chain opinion-trading platform with shareable Frames, built on Chainlink CCIP.',
     award: 'Won **zkSync, Polygon & Scroll prizes** at Chainlink Block Magic.',
   },

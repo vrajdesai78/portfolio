@@ -33,12 +33,13 @@ export function Component() {
           </div>
           <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted">
             <p>
-              I build end-to-end and work directly with customers — backend, integrations, and
-              developer-facing solutions. Most recently co-founded{' '}
+              I work where engineering meets customers — integrations, developer tooling, and the
+              backend systems behind them. At WalletConnect I embedded with{' '}
+              {boldify('**Jupiter, Backpack, and MetaMask**')}; most recently co-founded{' '}
               <a href="https://metengine.xyz" target="_blank" rel="noopener noreferrer" className={`text-fg ${linkClass}`}>
                 MetEngine
-              </a>
-              : {boldify('**$114M+** volume, **8.5K+** users, **$375K** raised from Colosseum and Balaji Srinivasan.')}
+              </a>{' '}
+              — {boldify('Colosseum-backed, **$114M+** volume, **8.5K+** users.')}
             </p>
             <p className="text-fg">
               <span className="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-accent" aria-hidden="true" />

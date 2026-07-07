@@ -15,7 +15,7 @@ describe('site config', () => {
     expect(labels).not.toContain('farcaster')
   })
   it('positions for solutions engineering with an explicit availability line', () => {
-    expect(site.role).toBe('Backend & Solutions Engineer')
+    expect(site.role).toBe('Solutions & DevRel Engineer')
     expect(site.availability).toMatch(/looking for my next role/i)
   })
 })

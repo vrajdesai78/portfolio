@@ -7,12 +7,12 @@ export interface SiteConfig {
 
 export const site: SiteConfig = {
   name: 'Vraj Desai',
-  role: 'Backend & Solutions Engineer',
-  roleLine: 'backend & solutions engineer',
+  role: 'Solutions & DevRel Engineer',
+  roleLine: 'solutions & devrel engineer',
   tagline:
-    'Backend & solutions engineer. Co-founded MetEngine — $114M+ volume, 8.5K+ users. Previously WalletConnect and Huddle01. Looking for my next role.',
+    'Solutions & DevRel engineer. Embedded with Jupiter, Backpack, and MetaMask at WalletConnect. Co-founded MetEngine — $114M+ volume, 8.5K+ users.',
   availability:
-    "I'm currently looking for my next role — solutions engineering, DevRel, or backend.",
+    "I'm currently looking for my next role — solutions engineering or DevRel, where I own customer integrations end-to-end and stay close to the backend.",
   email: 'vrajdesai78@gmail.com',
   baseUrl: 'https://vrajdesai.dev',
   resumePath: '/vraj-desai-resume.pdf',
