@@ -5,6 +5,7 @@ const checks: { file: string; must: string[] }[] = [
   { file: 'dist/resume.html', must: ['<title', 'og:image'] },
   { file: 'dist/og/home.png', must: [] },
   { file: 'dist/og/resume.png', must: [] },
+  { file: 'dist/vraj-desai-resume.pdf', must: [] },
   { file: 'dist/sitemap.xml', must: ['<loc>'] },
 ]
 
