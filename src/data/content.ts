@@ -23,7 +23,7 @@ export const work: WorkEntry[] = [
     period: 'Nov 2024 – May 2025',
     clients: ['Jupiter', 'Backpack', 'MetaMask'],
     points: [
-      'Guided **Jupiter, Backpack, and MetaMask** through WalletKit integrations and Solana support, working hands-on with their teams.',
+      'Worked directly with **Jupiter, Backpack, and MetaMask** on their WalletKit integrations and Solana support.',
       'Technical point of contact for wallet clients — triaged issues, reproduced bugs, and turned customer feedback into product fixes.',
       'Wrote docs, integration guides, and sample apps; onboarded wallets to WalletConnect Certified.',
     ],
