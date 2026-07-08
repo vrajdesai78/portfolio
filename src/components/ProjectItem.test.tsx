@@ -18,9 +18,9 @@ describe('ProjectItem', () => {
   })
 
   it('renders the name as an external link when url is set', () => {
-    render(<ProjectItem project={{ ...project, url: 'https://github.com/vrajdesai78/WiseBets' }} />)
+    render(<ProjectItem project={{ ...project, url: 'https://github.com/vrajdesai78/Farview.id' }} />)
     const link = screen.getByRole('link', { name: 'Stackit' })
-    expect(link).toHaveAttribute('href', 'https://github.com/vrajdesai78/WiseBets')
+    expect(link).toHaveAttribute('href', 'https://github.com/vrajdesai78/Farview.id')
     expect(link).toHaveAttribute('target', '_blank')
   })
 

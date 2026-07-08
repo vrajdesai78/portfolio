@@ -57,17 +57,6 @@ export const projectsData: ProjectEntry[] = [
     oneliner: 'Personalized profile pages for Farcaster & Base users, with **6K+** users and **12K+** Frame interactions.',
     award: 'Won the **Social track** at Base Onchain Summer Buildathon; Base builder grant.',
   },
-  {
-    name: 'Capital Finance',
-    oneliner: 'Cross-chain yield aggregator on the Superchain, auto-routing funds to the highest yield via Chainlink CCIP.',
-    award: 'Won **Best Trading App on Base** and Best Use of Goldsky at ETHGlobal SuperHack.',
-  },
-  {
-    name: 'WiseBets',
-    url: 'https://github.com/vrajdesai78/WiseBets',
-    oneliner: 'Multi-chain opinion-trading platform with shareable Frames, built on Chainlink CCIP.',
-    award: 'Won **zkSync, Polygon & Scroll prizes** at Chainlink Block Magic.',
-  },
 ]
 
 export const achievements: string[] = [

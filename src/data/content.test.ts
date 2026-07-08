@@ -14,10 +14,8 @@ describe('content data (mirrors July 2026 resume)', () => {
       expect(w.points.length).toBeLessThanOrEqual(4)
     }
   })
-  it('lists exactly the four resume projects', () => {
-    expect(projectsData.map((p) => p.name)).toEqual([
-      'Stackit', 'Farview.id', 'Capital Finance', 'WiseBets',
-    ])
+  it('lists exactly the two resume projects', () => {
+    expect(projectsData.map((p) => p.name)).toEqual(['Stackit', 'Farview.id'])
   })
   it('every project has a oneliner and an award', () => {
     for (const p of projectsData) {
