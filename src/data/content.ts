@@ -23,7 +23,7 @@ export const work: WorkEntry[] = [
     period: 'Nov 2024 – May 2025',
     deployedInto: ['Jupiter', 'Backpack', 'MetaMask'],
     points: [
-      'Shipped WalletKit integrations and Solana support inside **Jupiter, Backpack, and MetaMask** — reproducing and fixing bugs directly in their code.',
+      'Shipped WalletKit integrations and Solana support with **Jupiter, Backpack, and MetaMask** — reproducing and fixing bugs directly in their codebases.',
       'Technical point of contact for wallet clients — triaged issues, reproduced bugs, and turned customer feedback into product fixes.',
       'Wrote docs, integration guides, and sample apps; onboarded wallets to WalletConnect Certified.',
     ],

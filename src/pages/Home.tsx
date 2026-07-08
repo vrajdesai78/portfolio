@@ -43,9 +43,9 @@ export function Component() {
 
           <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted">
             <p>
-              I was doing the forward-deployed job before I knew its name: at WalletConnect I shipped
-              inside {boldify("**Jupiter, Backpack, and MetaMask**'s")} integrations — their codebases,
-              their bugs, my fixes. Then I co-founded{' '}
+              My last few roles have basically been forward deployment: at WalletConnect I worked
+              inside {boldify("**Jupiter, Backpack, and MetaMask**'s")} codebases, debugging and
+              shipping their WalletKit and Solana integrations. Most recently I co-founded{' '}
               <a href="https://metengine.xyz" target="_blank" rel="noopener noreferrer" className={`text-fg ${linkClass}`}>
                 MetEngine
               </a>{' '}
@@ -83,13 +83,13 @@ export function Component() {
           </div>
         </Section>
 
-        <Section cmd="projects --awards" stagger={2}>
+        <Section cmd="projects" stagger={2}>
           <div className="space-y-6">
             {projectsData.map((p) => <ProjectItem key={p.name} project={p} />)}
           </div>
         </Section>
 
-        <Section cmd="track-record" stagger={3}>
+        <Section cmd="achievements" stagger={3}>
           <ul className="space-y-2">
             {achievements.map((a, i) => (
               <li
@@ -102,7 +102,7 @@ export function Component() {
           </ul>
         </Section>
 
-        <Section cmd="skills --list" stagger={4}>
+        <Section cmd="skills" stagger={4}>
           <dl className="space-y-2 text-[15px] leading-relaxed">
             {skills.map((g) => (
               <div key={g.label}>
