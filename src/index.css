@@ -50,6 +50,12 @@ body { background: var(--bg); color: var(--fg); font-family: var(--font-sans);
   animation-delay: calc(var(--stagger, 0) * 50ms);
 }
 
+@keyframes blink {
+  0%, 49% { opacity: 1; }
+  50%, 100% { opacity: 0; }
+}
+.animate-blink { animation: blink 1.1s steps(1) infinite; }
+
 @media (prefers-reduced-motion: reduce) {
   * {
     animation-duration: 0.01ms !important;

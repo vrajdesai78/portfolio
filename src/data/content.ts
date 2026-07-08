@@ -1,4 +1,8 @@
-export interface WorkEntry { org: string; url?: string; role: string; period: string; points: string[] }
+export interface WorkEntry {
+  org: string; url?: string; role: string; period: string;
+  deployedInto?: string[]; stack?: string[];
+  points: string[];
+}
 export interface ProjectEntry { name: string; url?: string; oneliner: string; award: string }
 export interface SkillGroupData { label: string; items: string[] }
 
@@ -6,6 +10,7 @@ export const work: WorkEntry[] = [
   {
     org: 'MetEngine', url: 'https://metengine.xyz', role: 'Co-Founder & CTO',
     period: 'Feb 2025 – Jun 2026',
+    stack: ['Node.js', 'ClickHouse', 'Redis', 'AWS', 'Solana'],
     points: [
       'Built an automated copy-LPing engine on Solana that drove **$4.3M+** in yield for **8.5K+** users and scaled total volume past **$114M+**.',
       'Led the backend end-to-end: high-throughput data pipelines and real-time analytics on Solana (Node.js, ClickHouse, Redis) in production on AWS, with a real-time indexer across Meteora and other DeFi protocols.',
@@ -16,8 +21,9 @@ export const work: WorkEntry[] = [
   {
     org: 'WalletConnect', role: 'DevRel / Solutions Engineer, WalletKit',
     period: 'Nov 2024 – May 2025',
+    deployedInto: ['Jupiter', 'Backpack', 'MetaMask'],
     points: [
-      'Embedded with **Jupiter, Backpack, and MetaMask** to integrate WalletKit and add Solana support, debugging their integrations directly.',
+      'Shipped WalletKit integrations and Solana support inside **Jupiter, Backpack, and MetaMask** — reproducing and fixing bugs directly in their code.',
       'Technical point of contact for wallet clients — triaged issues, reproduced bugs, and turned customer feedback into product fixes.',
       'Wrote docs, integration guides, and sample apps; onboarded wallets to WalletConnect Certified.',
     ],
@@ -76,5 +82,5 @@ export const skills: SkillGroupData[] = [
   { label: 'Languages', items: ['TypeScript', 'JavaScript', 'Solidity', 'Python', 'Rust (familiar)'] },
   { label: 'Backend & Data', items: ['Node.js', 'REST APIs', 'data pipelines & real-time analytics', 'PostgreSQL', 'ClickHouse', 'Redis', 'Supabase', 'Firebase', 'AWS'] },
   { label: 'Web3', items: ['Solana', 'EVM', 'Ethers.js', 'Web3.js', 'SolanaKit', 'Wagmi/Viem', 'WalletConnect', 'Chainlink CCIP', 'Dune'] },
-  { label: 'Solutions & Integration', items: ['API & SDK integration', 'integration debugging', 'customer onboarding & support', 'technical docs', 'sample apps & demos', 'community & speaking'] },
+  { label: 'Forward Deployment & Solutions', items: ['API & SDK integration', 'integration debugging in customer codebases', 'customer onboarding & support', 'technical docs', 'sample apps & demos', 'community & speaking'] },
 ]

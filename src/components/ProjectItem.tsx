@@ -19,7 +19,10 @@ export default function ProjectItem({ project }: { project: ProjectEntry }) {
         )}
         <span className="font-normal text-muted"> — {boldify(project.oneliner)}</span>
       </h3>
-      <p className="mt-1 text-[15px] leading-relaxed text-muted">{boldify(project.award)}</p>
+      <p className="mt-1 text-[15px] leading-relaxed text-muted">
+        <span aria-hidden="true" className="mr-1.5 font-mono text-xs text-accent">★</span>
+        {boldify(project.award)}
+      </p>
     </article>
   )
 }

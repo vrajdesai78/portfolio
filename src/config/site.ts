@@ -1,18 +1,20 @@
 export interface Social { label: string; href: string }
 export interface SiteConfig {
-  name: string; role: string; roleLine: string; tagline: string; availability: string;
+  name: string; role: string; roleLine: string; statusLine: string; tagline: string;
+  availability: string;
   location: string; email: string; baseUrl: string; resumePath: string;
   socials: Social[];
 }
 
 export const site: SiteConfig = {
   name: 'Vraj Desai',
-  role: 'Solutions & DevRel Engineer',
-  roleLine: 'solutions & devrel engineer',
+  role: 'Forward Deployed Engineer',
+  roleLine: 'forward deployed engineer',
+  statusLine: 'available for deployment',
   tagline:
-    'Solutions & DevRel engineer. Embedded with Jupiter, Backpack, and MetaMask at WalletConnect. Co-founded MetEngine — $114M+ volume, 8.5K+ users.',
+    "Forward deployed engineer. Shipped inside Jupiter, Backpack, and MetaMask's integrations at WalletConnect; co-founded MetEngine — $114M+ volume, 8.5K+ users.",
   availability:
-    "I'm currently looking for my next role — solutions engineering or DevRel, where I own customer integrations end-to-end and stay close to the backend.",
+    "I'm currently looking for my next role — forward deployed or solutions engineering, shipping inside your customers' codebases.",
   location: 'Vadodara, India (UTC+5:30)',
   email: 'vrajdesai78@gmail.com',
   baseUrl: 'https://vrajdesai.dev',

@@ -14,8 +14,8 @@ describe('site config', () => {
     expect(labels).toEqual(expect.arrayContaining(['github', 'x', 'linkedin', 'email']))
     expect(labels).not.toContain('farcaster')
   })
-  it('positions for solutions engineering with an explicit availability line', () => {
-    expect(site.role).toBe('Solutions & DevRel Engineer')
+  it('positions for forward deployed engineering with an explicit availability line', () => {
+    expect(site.role).toBe('Forward Deployed Engineer')
     expect(site.availability).toMatch(/looking for my next role/i)
   })
 })

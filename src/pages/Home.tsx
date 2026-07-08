@@ -27,24 +27,31 @@ export function Component() {
               className="h-14 w-14 rounded-full object-cover"
             />
             <div>
-              <h1 className="text-2xl font-semibold tracking-tight">{site.name}</h1>
-              <p className="mt-0.5 font-mono text-sm lowercase text-muted">
-                {site.roleLine} · {site.location}
-              </p>
+              <h1 className="font-mono text-2xl font-bold lowercase tracking-tight">
+                {site.name}
+                <span aria-hidden="true" className="animate-blink ml-1.5 inline-block h-[1.05em] w-[0.55ch] translate-y-[0.18em] bg-accent" />
+              </h1>
+              <p className="mt-1 font-mono text-sm lowercase text-muted">{site.roleLine}</p>
             </div>
           </div>
+
+          <p className="mt-4 font-mono text-xs lowercase tracking-[0.14em]">
+            <span aria-hidden="true" className="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-accent" />
+            <span className="text-accent">{site.statusLine}</span>
+            <span className="text-muted"> · {site.location.toLowerCase()}</span>
+          </p>
+
           <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted">
             <p>
-              I work where engineering meets customers — integrations, developer tooling, and the
-              backend systems behind them. At WalletConnect I embedded with{' '}
-              {boldify('**Jupiter, Backpack, and MetaMask**')}; most recently co-founded{' '}
+              I was doing the forward-deployed job before I knew its name: at WalletConnect I shipped
+              inside {boldify("**Jupiter, Backpack, and MetaMask**'s")} integrations — their codebases,
+              their bugs, my fixes. Then I co-founded{' '}
               <a href="https://metengine.xyz" target="_blank" rel="noopener noreferrer" className={`text-fg ${linkClass}`}>
                 MetEngine
               </a>{' '}
               — {boldify('Colosseum-backed, **$114M+** volume, **8.5K+** users.')}
             </p>
             <p className="text-fg">
-              <span className="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-accent" aria-hidden="true" />
               {site.availability}{' '}
               <a href={`mailto:${site.email}`} className={linkClass}>
                 Get in touch →
@@ -70,19 +77,19 @@ export function Component() {
           </ul>
         </header>
 
-        <Section title="work" stagger={1}>
-          <div className="space-y-8">
+        <Section cmd="deployments --log" stagger={1}>
+          <div className="space-y-5">
             {work.map((w) => <WorkItem key={w.org} entry={w} />)}
           </div>
         </Section>
 
-        <Section title="projects" stagger={2}>
+        <Section cmd="projects --awards" stagger={2}>
           <div className="space-y-6">
             {projectsData.map((p) => <ProjectItem key={p.name} project={p} />)}
           </div>
         </Section>
 
-        <Section title="achievements" stagger={3}>
+        <Section cmd="track-record" stagger={3}>
           <ul className="space-y-2">
             {achievements.map((a, i) => (
               <li
@@ -95,7 +102,7 @@ export function Component() {
           </ul>
         </Section>
 
-        <Section title="skills" stagger={4}>
+        <Section cmd="skills --list" stagger={4}>
           <dl className="space-y-2 text-[15px] leading-relaxed">
             {skills.map((g) => (
               <div key={g.label}>
