@@ -32,7 +32,7 @@ export default function WorkItem({ entry }: { entry: WorkEntry }) {
         <span className="ml-auto shrink-0 font-mono text-xs text-muted">{entry.period}</span>
       </div>
       <div className="space-y-2 px-4 py-3">
-        {entry.deployedInto && <FieldRow label="deployed into" values={entry.deployedInto} />}
+        {entry.clients && <FieldRow label="clients" values={entry.clients} />}
         {entry.stack && <FieldRow label="stack" values={entry.stack} />}
         <ul className="space-y-1.5">
           {entry.points.map((p, i) => (

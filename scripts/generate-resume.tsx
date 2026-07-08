@@ -99,7 +99,7 @@ const Resume = () => (
             </Text>
             <Text style={s.period}>{w.period}</Text>
           </View>
-          {w.deployedInto && <FieldLine label="deployed into" values={w.deployedInto} />}
+          {w.clients && <FieldLine label="clients" values={w.clients} />}
           {w.stack && <FieldLine label="stack" values={w.stack} />}
           {w.points.map((p, i) => (
             <View key={i} style={s.bulletRow} wrap={false}>

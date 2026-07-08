@@ -1,6 +1,6 @@
 export interface WorkEntry {
   org: string; url?: string; role: string; period: string;
-  deployedInto?: string[]; stack?: string[];
+  clients?: string[]; stack?: string[];
   points: string[];
 }
 export interface ProjectEntry { name: string; url?: string; oneliner: string; award: string }
@@ -21,9 +21,9 @@ export const work: WorkEntry[] = [
   {
     org: 'WalletConnect', role: 'DevRel / Solutions Engineer, WalletKit',
     period: 'Nov 2024 – May 2025',
-    deployedInto: ['Jupiter', 'Backpack', 'MetaMask'],
+    clients: ['Jupiter', 'Backpack', 'MetaMask'],
     points: [
-      'Shipped WalletKit integrations and Solana support with **Jupiter, Backpack, and MetaMask** — reproducing and fixing bugs directly in their codebases.',
+      'Guided **Jupiter, Backpack, and MetaMask** through WalletKit integrations and Solana support, working hands-on with their teams.',
       'Technical point of contact for wallet clients — triaged issues, reproduced bugs, and turned customer feedback into product fixes.',
       'Wrote docs, integration guides, and sample apps; onboarded wallets to WalletConnect Certified.',
     ],
@@ -82,5 +82,5 @@ export const skills: SkillGroupData[] = [
   { label: 'Languages', items: ['TypeScript', 'JavaScript', 'Solidity', 'Python', 'Rust (familiar)'] },
   { label: 'Backend & Data', items: ['Node.js', 'REST APIs', 'data pipelines & real-time analytics', 'PostgreSQL', 'ClickHouse', 'Redis', 'Supabase', 'Firebase', 'AWS'] },
   { label: 'Web3', items: ['Solana', 'EVM', 'Ethers.js', 'Web3.js', 'SolanaKit', 'Wagmi/Viem', 'WalletConnect', 'Chainlink CCIP', 'Dune'] },
-  { label: 'Forward Deployment & Solutions', items: ['API & SDK integration', 'integration debugging in customer codebases', 'customer onboarding & support', 'technical docs', 'sample apps & demos', 'community & speaking'] },
+  { label: 'Forward Deployment & Solutions', items: ['API & SDK integration', 'integration debugging & support', 'customer onboarding', 'technical docs', 'sample apps & demos', 'community & speaking'] },
 ]

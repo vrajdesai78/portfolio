@@ -44,8 +44,9 @@ export function Component() {
           <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted">
             <p>
               My last few roles have basically been forward deployment: at WalletConnect I worked
-              inside {boldify("**Jupiter, Backpack, and MetaMask**'s")} codebases, debugging and
-              shipping their WalletKit and Solana integrations. Most recently I co-founded{' '}
+              directly with {boldify('**Jupiter, Backpack, and MetaMask**')}, guiding their WalletKit
+              and Solana integrations and debugging issues alongside their teams. Most recently I
+              co-founded{' '}
               <a href="https://metengine.xyz" target="_blank" rel="noopener noreferrer" className={`text-fg ${linkClass}`}>
                 MetEngine
               </a>{' '}
