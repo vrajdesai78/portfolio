@@ -38,7 +38,6 @@ export function Component() {
           <p className="mt-4 font-mono text-xs lowercase tracking-[0.14em]">
             <span aria-hidden="true" className="mr-2 inline-block h-2 w-2 animate-pulse rounded-full bg-accent" />
             <span className="text-accent">{site.statusLine}</span>
-            <span className="text-muted"> · {site.location.toLowerCase()}</span>
           </p>
 
           <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted">
