@@ -13,8 +13,8 @@ function FieldRow({ label, values }: { label: string; values: string[] }) {
 export default function WorkItem({ entry }: { entry: WorkEntry }) {
   return (
     <article className="overflow-hidden rounded-sm border border-border">
-      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-border bg-surface px-4 py-2.5">
-        <h3 className="font-mono text-sm font-semibold">
+      <div className="flex flex-wrap items-baseline justify-between gap-x-4 gap-y-1 border-b border-border bg-surface px-5 py-3">
+        <h3 className="min-w-0 font-mono text-sm font-semibold">
           {entry.url ? (
             <a
               href={entry.url}
@@ -31,14 +31,14 @@ export default function WorkItem({ entry }: { entry: WorkEntry }) {
         </h3>
         <span className="ml-auto shrink-0 font-mono text-xs text-muted">{entry.period}</span>
       </div>
-      <div className="space-y-2 px-4 py-3">
+      <div className="space-y-3 px-5 py-4">
         {entry.clients && <FieldRow label="clients" values={entry.clients} />}
         {entry.stack && <FieldRow label="stack" values={entry.stack} />}
-        <ul className="space-y-1.5">
+        <ul className="space-y-2.5">
           {entry.points.map((p, i) => (
             <li
               key={i}
-              className="relative pl-4 text-[15px] leading-relaxed text-muted before:absolute before:left-0 before:content-['–']"
+              className="relative pl-4 text-[15px] leading-7 text-muted before:absolute before:left-0 before:content-['–']"
             >
               {boldify(p)}
             </li>

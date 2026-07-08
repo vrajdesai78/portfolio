@@ -19,8 +19,8 @@ const card = (r: { eyebrow: string; title: string; subtitle?: string; metric?: s
       flexDirection: 'column',
       justifyContent: 'space-between',
       padding: '64px',
-      backgroundColor: '#0a0a0b',
-      color: '#f5f6f7',
+      backgroundColor: '#1b1c1f',
+      color: '#f0f1f2',
       fontFamily: 'JetBrains Mono',
     },
     children: [

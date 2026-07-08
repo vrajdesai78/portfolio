@@ -4,7 +4,7 @@ import { boldify } from '../lib/text'
 export default function ProjectItem({ project }: { project: ProjectEntry }) {
   return (
     <article>
-      <h3 className="text-[15px] font-semibold">
+      <h3 className="text-[15px] font-semibold leading-7">
         {project.url ? (
           <a
             href={project.url}
@@ -19,7 +19,7 @@ export default function ProjectItem({ project }: { project: ProjectEntry }) {
         )}
         <span className="font-normal text-muted"> · {boldify(project.oneliner)}</span>
       </h3>
-      <p className="mt-1 text-[15px] leading-relaxed text-muted">
+      <p className="mt-1.5 text-[15px] leading-7 text-muted">
         <span aria-hidden="true" className="mr-1.5 font-mono text-xs text-accent">★</span>
         {boldify(project.award)}
       </p>
