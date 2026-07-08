@@ -28,9 +28,9 @@ describe('content data (mirrors July 2026 resume)', () => {
   it('has three achievement lines', () => {
     expect(achievements).toHaveLength(3)
   })
-  it('has the four resume skill groups', () => {
+  it('has the three resume skill groups', () => {
     expect(skills.map((s) => s.label)).toEqual([
-      'Languages', 'Backend & Data', 'Web3', 'Forward Deployment & Solutions',
+      'Languages', 'Backend & Data', 'Forward Deployment & Solutions',
     ])
   })
   it('keeps the MetEngine metrics intact', () => {
