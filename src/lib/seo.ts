@@ -34,7 +34,6 @@ export function personJsonLd(): object {
     '@type': 'Person',
     name: site.name,
     url: site.baseUrl,
-    jobTitle: site.role,
     email: `mailto:${site.email}`,
     sameAs: site.socials.filter((s) => s.label !== 'Email').map((s) => s.href),
   }

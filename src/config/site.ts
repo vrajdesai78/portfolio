@@ -1,6 +1,6 @@
 export interface Social { label: string; href: string }
 export interface SiteConfig {
-  name: string; role: string; roleLine: string; statusLine: string; tagline: string;
+  name: string; statusLine: string; tagline: string;
   availability: string;
   location: string; email: string; baseUrl: string; resumePath: string;
   socials: Social[];
@@ -8,11 +8,9 @@ export interface SiteConfig {
 
 export const site: SiteConfig = {
   name: 'Vraj Desai',
-  role: 'Solutions Engineer',
-  roleLine: 'solutions engineer',
   statusLine: 'open to opportunities',
   tagline:
-    'Solutions engineer. Co-founded MetEngine, a DeFi product on Solana — 10K+ users, $114M+ volume. Worked with Jupiter, Backpack, and MetaMask at WalletConnect.',
+    'Co-founded MetEngine, a DeFi product on Solana — 10K+ users, $114M+ volume. Worked with Jupiter, Backpack, and MetaMask at WalletConnect.',
   availability:
     "I'm looking for my next role — something technical and customer-facing, where I build and work closely with the people using it.",
   location: 'Vadodara, India (UTC+5:30)',

@@ -27,7 +27,6 @@ const ACCENT = '#0e9f6e'
 const s = StyleSheet.create({
   page: { fontFamily: 'Inter', fontSize: 9.5, color: '#1a1a1a', paddingVertical: 20, paddingHorizontal: 38 },
   name: { fontFamily: 'JetBrains Mono', fontSize: 17, fontWeight: 700, textAlign: 'center', lineHeight: 1.2 },
-  role: { fontFamily: 'JetBrains Mono', fontSize: 9.5, fontWeight: 700, letterSpacing: 1.4, color: ACCENT, textAlign: 'center', marginTop: 3, lineHeight: 1.3 },
   contact: { fontSize: 9, color: '#3a3a3a', textAlign: 'center', marginTop: 4, lineHeight: 1.4 },
   status: { fontFamily: 'JetBrains Mono', fontSize: 7.5, letterSpacing: 1, color: '#555555', textAlign: 'center', marginTop: 3, lineHeight: 1.3 },
   statusDot: { color: ACCENT },
@@ -68,14 +67,13 @@ const FieldLine = ({ label, values }: { label: string; values: string[] }) => (
 
 const Resume = () => (
   <Document
-    title={`${site.name} — ${site.role}`}
+    title={`${site.name} — Resume`}
     author={site.name}
-    subject={`${site.role} resume`}
+    subject="Resume"
     creator={site.baseUrl}
   >
     <Page size="LETTER" style={s.page}>
       <Text style={s.name}>{site.name}</Text>
-      <Text style={s.role}>{site.role.toUpperCase()}</Text>
       <Text style={s.contact}>
         {contactParts.map((c, i) => (
           <Text key={c.href}>

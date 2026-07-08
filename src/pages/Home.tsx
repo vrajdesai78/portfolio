@@ -15,7 +15,7 @@ const linkClass =
 export function Component() {
   return (
     <Container>
-      <Seo title={`${site.name} — ${site.role}`} description={site.tagline} path="/" jsonLd={personJsonLd()} />
+      <Seo title={site.name} description={site.tagline} path="/" jsonLd={personJsonLd()} />
       <div className="space-y-14 py-14">
         <header className="animate-enter">
           <div className="flex items-center gap-4">
@@ -31,7 +31,6 @@ export function Component() {
                 {site.name}
                 <span aria-hidden="true" className="animate-blink ml-1.5 inline-block h-[1.05em] w-[0.55ch] translate-y-[0.18em] bg-accent" />
               </h1>
-              <p className="mt-1 font-mono text-sm lowercase text-muted">{site.roleLine}</p>
             </div>
           </div>
 

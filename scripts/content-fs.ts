@@ -12,11 +12,11 @@ export function listRoutes(): RouteMeta[] {
   return [
     {
       path: '/',
-      eyebrow: site.role.toUpperCase(),
+      eyebrow: site.statusLine.toUpperCase(),
       title: site.name,
       subtitle: 'MetEngine · WalletConnect · Huddle01',
       metric: '10K+ users · $114M+ volume',
     },
-    { path: '/resume', eyebrow: 'RESUME', title: site.name, subtitle: site.role },
+    { path: '/resume', eyebrow: 'RESUME', title: site.name },
   ]
 }
