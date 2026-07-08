@@ -18,4 +18,8 @@ describe('site config', () => {
     expect('role' in site).toBe(false)
     expect(site.availability).toMatch(/looking for my next role/i)
   })
+  it('uses no em dashes in the tagline or availability line', () => {
+    expect(site.tagline).not.toContain('—')
+    expect(site.availability).not.toContain('—')
+  })
 })

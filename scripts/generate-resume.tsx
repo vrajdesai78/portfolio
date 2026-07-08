@@ -67,7 +67,7 @@ const FieldLine = ({ label, values }: { label: string; values: string[] }) => (
 
 const Resume = () => (
   <Document
-    title={`${site.name} — Resume`}
+    title={`${site.name} · Resume`}
     author={site.name}
     subject="Resume"
     creator={site.baseUrl}
@@ -93,7 +93,7 @@ const Resume = () => (
           <View style={s.entryRow}>
             <Text style={s.org}>
               {w.url ? <Link src={w.url} style={s.link}>{w.org}</Link> : w.org}
-              <Text style={s.orgRole}>  —  {w.role}</Text>
+              <Text style={s.orgRole}>  ·{w.role}</Text>
             </Text>
             <Text style={s.period}>{w.period}</Text>
           </View>
@@ -115,7 +115,7 @@ const Resume = () => (
             <Text style={s.projectName}>
               {p.url ? <Link src={p.url} style={s.link}>{p.name}</Link> : p.name}
             </Text>
-            <Text style={s.projectOneliner}>  —  {bold(p.oneliner)}</Text>
+            <Text style={s.projectOneliner}>  ·{bold(p.oneliner)}</Text>
           </Text>
           <View style={s.bulletRow}>
             <Text style={s.bulletMark}>•</Text>

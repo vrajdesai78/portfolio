@@ -41,13 +41,13 @@ export function Component() {
 
           <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted">
             <p>
-              I spent the last 18 months co-founding{' '}
+              For the last 18 months I was co-founder and CTO of{' '}
               <a href="https://metengine.xyz" target="_blank" rel="noopener noreferrer" className={`text-fg ${linkClass}`}>
                 MetEngine
               </a>
-              , a DeFi product on Solana that automates copy-LPing and yield strategies — we grew it
-              to {boldify('**10K+** users and **$114M+** in volume processed')}. I decided to leave
-              in June. Before that I was at WalletConnect, working directly with{' '}
+              , a DeFi product on Solana that automates copy-LPing and yield strategies. We took it
+              from an idea to {boldify('**10K+** users and **$114M+** in volume processed')}, and
+              raised a pre-seed along the way. Before that, at WalletConnect, I worked directly with{' '}
               {boldify('**Jupiter, Backpack, and MetaMask**')} on their WalletKit and Solana
               integrations.
             </p>

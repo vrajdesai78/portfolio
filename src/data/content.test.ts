@@ -49,4 +49,13 @@ describe('content data (mirrors July 2026 resume)', () => {
   it('keeps the Colosseum achievement metric intact', () => {
     expect(achievements.some((a) => a.includes('1,412 projects'))).toBe(true)
   })
+  it('uses no em dashes anywhere in the copy', () => {
+    const copy = [
+      ...work.flatMap((w) => [w.org, w.role, ...w.points]),
+      ...projectsData.flatMap((p) => [p.name, p.oneliner, p.award]),
+      ...achievements,
+      ...skills.flatMap((s) => [s.label, ...s.items]),
+    ]
+    for (const line of copy) expect(line).not.toContain('—')
+  })
 })

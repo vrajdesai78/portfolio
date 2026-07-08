@@ -27,7 +27,7 @@ export default function WorkItem({ entry }: { entry: WorkEntry }) {
           ) : (
             entry.org
           )}
-          <span className="font-normal text-muted"> — {entry.role}</span>
+          <span className="font-normal text-muted"> · {entry.role}</span>
         </h3>
         <span className="ml-auto shrink-0 font-mono text-xs text-muted">{entry.period}</span>
       </div>

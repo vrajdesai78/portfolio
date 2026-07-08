@@ -10,9 +10,9 @@ export const site: SiteConfig = {
   name: 'Vraj Desai',
   statusLine: 'open to opportunities',
   tagline:
-    'Co-founded MetEngine, a DeFi product on Solana — 10K+ users, $114M+ volume. Worked with Jupiter, Backpack, and MetaMask at WalletConnect.',
+    'Co-founded MetEngine, a DeFi product on Solana with 10K+ users and $114M+ in volume processed. Previously worked with Jupiter, Backpack, and MetaMask at WalletConnect.',
   availability:
-    "I'm looking for my next role — something technical and customer-facing, where I build and work closely with the people using it.",
+    "I'm looking for my next role: something technical and customer-facing, where I build and work closely with the people using it.",
   location: 'Vadodara, India (UTC+5:30)',
   email: 'vrajdesai78@gmail.com',
   baseUrl: 'https://vrajdesai.dev',

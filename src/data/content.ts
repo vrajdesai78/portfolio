@@ -24,7 +24,7 @@ export const work: WorkEntry[] = [
     clients: ['Jupiter', 'Backpack', 'MetaMask'],
     points: [
       'Worked directly with **Jupiter, Backpack, and MetaMask** on their WalletKit integrations and Solana support.',
-      'Technical point of contact for wallet clients — triaged issues, reproduced bugs, and turned customer feedback into product fixes.',
+      'Technical point of contact for wallet clients: triaged issues, reproduced bugs, and turned customer feedback into product fixes.',
       'Wrote docs, integration guides, and sample apps; onboarded wallets to WalletConnect Certified.',
     ],
   },
@@ -33,7 +33,7 @@ export const work: WorkEntry[] = [
     period: 'Apr 2023 – Aug 2024',
     points: [
       'Drove **200+** projects to integrate the SDK through docs, sample apps, and hands-on support; contributed to the core SDKs.',
-      'Built FarHouse, an audio-spaces client on Farcaster with in-app tipping — **30K+** MAUs; grew the Discord community from 2K to **13K+**.',
+      'Built FarHouse, an audio-spaces client on Farcaster with in-app tipping, reaching **30K+** MAUs; grew the Discord community from 2K to **13K+**.',
     ],
   },
   {
@@ -54,7 +54,7 @@ export const projectsData: ProjectEntry[] = [
   {
     name: 'Farview.id',
     url: 'https://github.com/vrajdesai78/Farview.id',
-    oneliner: 'Personalized profile pages for Farcaster & Base users — **6K+** users, **12K+** Frame interactions.',
+    oneliner: 'Personalized profile pages for Farcaster & Base users, with **6K+** users and **12K+** Frame interactions.',
     award: 'Won the **Social track** at Base Onchain Summer Buildathon; Base builder grant.',
   },
   {
@@ -71,7 +71,7 @@ export const projectsData: ProjectEntry[] = [
 ]
 
 export const achievements: string[] = [
-  '**2nd prize**, DeFi track, Colosseum Breakout Hackathon — out of **1,412 projects** from 10K+ builders; selected for **Colosseum Accelerator Cohort 3** (YC for Solana).',
+  '**2nd prize**, DeFi track, Colosseum Breakout Hackathon, out of **1,412 projects** from 10K+ builders; selected for **Colosseum Accelerator Cohort 3** (YC for Solana).',
   '**ETHGlobal finalist** and winner of **30+ hackathons**; builder grants from Base and Superteam.',
   'Speaker at **25+ conferences**; mentored at ETHIndia and HackFS.',
 ]
