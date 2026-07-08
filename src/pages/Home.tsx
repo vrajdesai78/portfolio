@@ -46,10 +46,10 @@ export function Component() {
               I spent the last 18 months co-founding{' '}
               <a href="https://metengine.xyz" target="_blank" rel="noopener noreferrer" className={`text-fg ${linkClass}`}>
                 MetEngine
-              </a>{' '}
-              — something we built for ourselves that grew into a product with{' '}
-              {boldify('**10K+** users and **$114M+** in volume processed')}. I decided to leave in
-              June. Before that I was at WalletConnect, working directly with{' '}
+              </a>
+              , a DeFi product on Solana that automates copy-LPing and yield strategies — we grew it
+              to {boldify('**10K+** users and **$114M+** in volume processed')}. I decided to leave
+              in June. Before that I was at WalletConnect, working directly with{' '}
               {boldify('**Jupiter, Backpack, and MetaMask**')} on their WalletKit and Solana
               integrations.
             </p>
