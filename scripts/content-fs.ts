@@ -15,7 +15,7 @@ export function listRoutes(): RouteMeta[] {
       eyebrow: site.role.toUpperCase(),
       title: site.name,
       subtitle: 'MetEngine · WalletConnect · Huddle01',
-      metric: '$114M+ volume · 8.5K+ users',
+      metric: '10K+ users · $114M+ volume',
     },
     { path: '/resume', eyebrow: 'RESUME', title: site.name, subtitle: site.role },
   ]

@@ -30,7 +30,7 @@ describe('content data (mirrors July 2026 resume)', () => {
   })
   it('has the three resume skill groups', () => {
     expect(skills.map((s) => s.label)).toEqual([
-      'Languages', 'Backend & Data', 'Forward Deployment & Solutions',
+      'Languages', 'Backend & Data', 'Solutions & Integration',
     ])
   })
   it('keeps the MetEngine metrics intact', () => {

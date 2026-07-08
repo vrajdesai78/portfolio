@@ -8,13 +8,13 @@ export interface SiteConfig {
 
 export const site: SiteConfig = {
   name: 'Vraj Desai',
-  role: 'Forward Deployed Engineer',
-  roleLine: 'forward deployed engineer',
-  statusLine: 'available for deployment',
+  role: 'Solutions Engineer',
+  roleLine: 'solutions engineer',
+  statusLine: 'open to opportunities',
   tagline:
-    'Forward deployed engineer. Co-founded MetEngine (Colosseum-backed) — $114M+ volume, 8.5K+ users. Worked with Jupiter, Backpack, and MetaMask at WalletConnect.',
+    'Solutions engineer. Co-founded MetEngine — 10K+ users, $114M+ volume processed. Previously worked with Jupiter, Backpack, and MetaMask at WalletConnect.',
   availability:
-    "I'm currently looking for my next role — forward deployed or solutions engineering.",
+    "I'm looking for my next role — something technical and customer-facing, where I build and work closely with the people using it.",
   location: 'Vadodara, India (UTC+5:30)',
   email: 'vrajdesai78@gmail.com',
   baseUrl: 'https://vrajdesai.dev',

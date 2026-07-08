@@ -81,5 +81,5 @@ export const education: string[] = []
 export const skills: SkillGroupData[] = [
   { label: 'Languages', items: ['TypeScript', 'JavaScript', 'Solidity', 'Python', 'Rust (familiar)'] },
   { label: 'Backend & Data', items: ['Node.js', 'REST APIs', 'data pipelines & real-time analytics', 'PostgreSQL', 'ClickHouse', 'Redis', 'Supabase', 'Firebase', 'AWS'] },
-  { label: 'Forward Deployment & Solutions', items: ['API & SDK integration', 'integration debugging & support', 'customer onboarding', 'technical docs', 'sample apps & demos', 'community & speaking'] },
+  { label: 'Solutions & Integration', items: ['API & SDK integration', 'integration debugging & support', 'customer onboarding', 'technical docs', 'sample apps & demos', 'community & speaking'] },
 ]

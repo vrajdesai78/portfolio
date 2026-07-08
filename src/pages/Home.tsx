@@ -43,14 +43,15 @@ export function Component() {
 
           <div className="mt-6 space-y-4 text-[15px] leading-relaxed text-muted">
             <p>
-              Most recently I co-founded{' '}
+              I spent the last 18 months co-founding{' '}
               <a href="https://metengine.xyz" target="_blank" rel="noopener noreferrer" className={`text-fg ${linkClass}`}>
                 MetEngine
-              </a>
-              , an automated copy-LPing engine on Solana that did {boldify('**$114M+** in volume for **8.5K+** users')}.
-              Before that I was at WalletConnect, working directly with{' '}
+              </a>{' '}
+              — something we built for ourselves that grew into a product with{' '}
+              {boldify('**10K+** users and **$114M+** in volume processed')}. I decided to leave in
+              June. Before that I was at WalletConnect, working directly with{' '}
               {boldify('**Jupiter, Backpack, and MetaMask**')} on their WalletKit and Solana
-              integrations. I like being the engineer who sits between the product and the customer.
+              integrations.
             </p>
             <p className="text-fg">
               {site.availability}{' '}
